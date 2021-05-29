@@ -1,11 +1,46 @@
 class OrdersController < ApplicationController
 
-def index
+  def index
 
-end
+  end
 
-def show
+  def show
 
-end
+  end
+
+  def new
+
+  end
+
+  def create
+
+  end
+
+
+  def validate
+
+  end
+
+  def destroy
+
+  end
+
+   def propose_price
+
+  end
+
+  def confirm_shipping
+
+  end
+
+private
+
+  def order_params
+
+  end
+
+  def set_order
+
+  end
 
 end
