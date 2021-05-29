@@ -8,6 +8,6 @@ class User < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :orders, dependent: :destroy
 
-  validates :role, :company_name, :vat_number, :siret_number, presence: true
+  # validates :role, :company_name, :vat_number, :siret_number, presence: true
 
 end
