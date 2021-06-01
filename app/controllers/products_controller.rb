@@ -1,7 +1,12 @@
 class ProductsController < ApplicationController
 
   def index
-    # search
+    # if params[:search].present?
+    #   @products = Product.global_search("#{params[:search]}")
+
+    # else @products = Product.all
+    @products = Product.all
+    # end
   end
 
   def show
