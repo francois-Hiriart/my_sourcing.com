@@ -1,14 +1,13 @@
-class CreateProducts < ActiveRecord::Migration[6.0]
+class CreateCatheters < ActiveRecord::Migration[6.0]
   def change
-    create_table :products do |t|
+    create_table :catheters do |t|
       t.string :name
+      t.string :model
       t.text :description
-      t.string :category
-      t.integer :quantity
       t.float :unit_price_cents
+      t.integer :available_quantity
       t.string :brand
-      t.float :average_rating
-      t.integer :reference_number
+      t.integer :average_rating
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

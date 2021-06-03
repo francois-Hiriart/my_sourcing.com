@@ -5,7 +5,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :products, dependent: :destroy
+  has_many :maques, dependent: :destroy
+  has_many :bandes, dependent: :destroy
+  has_many :cathéters, dependent: :destroy
+  has_many :scalpels, dependent: :destroy
+  has_many :seringues, dependent: :destroy
   has_many :orders, dependent: :destroy
 
   # validates :role, :company_name, :vat_number, :siret_number, presence: true

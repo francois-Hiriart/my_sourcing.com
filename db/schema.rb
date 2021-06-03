@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_29_161846) do
+ActiveRecord::Schema.define(version: 2021_06_03_171856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,33 +36,95 @@ ActiveRecord::Schema.define(version: 2021_05_29_161846) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "bandes", force: :cascade do |t|
+    t.string "name"
+    t.string "model"
+    t.text "description"
+    t.float "unit_price_cents"
+    t.integer "available_quantity"
+    t.string "brand"
+    t.integer "average_rating"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_bandes_on_user_id"
+  end
+
+  create_table "catheters", force: :cascade do |t|
+    t.string "name"
+    t.string "model"
+    t.text "description"
+    t.float "unit_price_cents"
+    t.integer "available_quantity"
+    t.string "brand"
+    t.integer "average_rating"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_catheters_on_user_id"
+  end
+
+  create_table "masques", force: :cascade do |t|
+    t.string "name"
+    t.string "model"
+    t.text "description"
+    t.float "unit_price_cents"
+    t.integer "available_quantity"
+    t.string "brand"
+    t.integer "average_rating"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_masques_on_user_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.date "delivery_date"
     t.integer "product_quantity"
     t.date "shipping_date"
     t.float "price_cents"
-    t.bigint "product_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_id"], name: "index_orders_on_product_id"
+    t.bigint "masque_id", null: false
+    t.bigint "catheter_id", null: false
+    t.bigint "scalpel_id", null: false
+    t.bigint "bande_id", null: false
+    t.bigint "seringue_id", null: false
+    t.index ["bande_id"], name: "index_orders_on_bande_id"
+    t.index ["catheter_id"], name: "index_orders_on_catheter_id"
+    t.index ["masque_id"], name: "index_orders_on_masque_id"
+    t.index ["scalpel_id"], name: "index_orders_on_scalpel_id"
+    t.index ["seringue_id"], name: "index_orders_on_seringue_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "scalpels", force: :cascade do |t|
     t.string "name"
+    t.string "model"
     t.text "description"
-    t.string "category"
-    t.integer "quantity"
     t.float "unit_price_cents"
+    t.integer "available_quantity"
     t.string "brand"
-    t.float "average_rating"
-    t.integer "reference_number"
+    t.integer "average_rating"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "picture"
-    t.index ["user_id"], name: "index_products_on_user_id"
+    t.index ["user_id"], name: "index_scalpels_on_user_id"
+  end
+
+  create_table "seringues", force: :cascade do |t|
+    t.string "name"
+    t.string "model"
+    t.text "description"
+    t.float "unit_price_cents"
+    t.integer "available_quantity"
+    t.string "brand"
+    t.integer "average_rating"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_seringues_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -86,7 +148,15 @@ ActiveRecord::Schema.define(version: 2021_05_29_161846) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "orders", "products"
+  add_foreign_key "bandes", "users"
+  add_foreign_key "catheters", "users"
+  add_foreign_key "masques", "users"
+  add_foreign_key "orders", "bandes"
+  add_foreign_key "orders", "catheters"
+  add_foreign_key "orders", "masques"
+  add_foreign_key "orders", "scalpels"
+  add_foreign_key "orders", "seringues"
   add_foreign_key "orders", "users"
-  add_foreign_key "products", "users"
+  add_foreign_key "scalpels", "users"
+  add_foreign_key "seringues", "users"
 end
