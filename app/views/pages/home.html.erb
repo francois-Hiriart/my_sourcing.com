@@ -1,18 +1,97 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1587293852726-70cdb56c2866?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1652&q=80);">
+  <h1 class="card-title p-2 text-center" style="color: white"><b>Recherchez et trouvez des vendeurs vérifiés rapidement</h2></b><br>
+  <div class="container w-50 justify-content-center">
+    <div class="card">
+      <div class="card-body">
 
-
-<%= simple_form_for :products, url: products_path, method: "GET" do |f| %>
-            <div class="row">
-              <div class="col-md-3">
+        <%= simple_form_for :products, url: products_path, method: "GET" do |f| %>
+            <div class="row justify-content-center">
+              <div class="col-md-9">
                 <%= f.input :query, label: false,
-                                        input_html: { placeholder: "que recherchez-vous ?" } %>
+                                        input_html: { placeholder: "Tapez votre recherche ?" } %>
               </div>
-               <div class="col-md-3">
-                <%= f.input :query_category, label: false, as: :check_boxes, collection: Order::CATEGORIES %>
-              </div>
-               <div class="col-md-3">
-                <%= f.submit "recherche" %>
+              <div class="col-md-3">
+                <%= f.submit "rechercher", class: "btn btn-primary" %>
               </div>
             </div>
-            <% end %>
+            <div class="row justify-content-center">
+              <div class="">
+                <%= f.input :query_category, label: false, as: :check_boxes, collection: Order::CATEGORIES %>
+              </div>
+            </div>
+        <% end %>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="container py-5 text-center" style="bg-color">
+  <h2 class="pb-2m primary-color"><b>Découvrez Monsourcing.com</b></h2>
+  <p class="display-6">Voici les fonctionnalités et avantages que nous proposons à ceux d'entre vous qui veulent tenter Kitch2be</p>
+</div>
+
+<div class="container">
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="card m-2 bg-primary border-0 shadow-sm p-3 mb-5 bg-body rounded" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4 ">
+          <%= image_tag "", alt: "", class: "img-fluid rounded position-absolute top-50 start-50 translate-middle"%>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title" style="color: primary"><b>Booker son moment cuisine</b></h5>
+            <p class="card-text">Selectionnez le moment qui vous convient et organisez vous avec votre hôte de cuisine.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card m-2 bg-primary border-0 shadow-sm p-3 mb-5 bg-body rounded" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <%= image_tag "", alt: "", class: "img-fluid rounded position-absolute top-50 start-50 translate-middle"%>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title" style="color: primary"><b>Apprenez à cuisiner</b></h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card m-2 bg-primary border-0 shadow-sm p-3 mb-5 bg-body rounded" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <%= image_tag "", alt: "", class: "img-fluid rounded position-absolute top-50 start-50 translate-middle"%>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title" style="color: primary"><b>Créer de nouvelles rencontres</b></h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card m-2 bg-primary border-0 shadow-sm p-3 mb-5 bg-body rounded" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <%= image_tag "", alt: "Kitch2be", class: "img-fluid rounded position-absolute top-50 start-50 translate-middle"%>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title" style="color: primary"><b>Faites des economies</b></h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+

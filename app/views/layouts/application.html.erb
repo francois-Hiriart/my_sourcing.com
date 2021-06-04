@@ -12,9 +12,20 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-around py-2 bg-white sticky-top">
+      <a href="/" class="d-flex align-items-center">
+        <%= image_tag "Mon sourcing.com.png", alt: "MS.com", class: "bi me-2 logo justify-content-center w-50"%>
+      </a>
 
+      <ul class="nav col-12 col-md-auto justify-content-center">
+        <li><a href="/" class="nav-link px-2 link-secondary">Accueil</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Devenir vendeur</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Demande de sourcing</a></li>
+      </ul>
+      
+      <%= render 'shared/navbar' %>
+    </header>
+    <%= render 'shared/flashes' %>
     <%= yield %>
   </body>
 </html>
