@@ -18,27 +18,31 @@ masque_description = ["Surgical Mask - 3 ply pleated lightweight breathable mate
 "We are offering Disposable Doctor Mask. Material: Single Ply Non-Woven. Mask Securing Method:  Earloop, Head Band, Tie On. Color: blue. Application: hospital. Packaging Type: Carton Box, PP Bag",
 "Non Woven Dispotrazet Mask with 3 layers of spun with nose pin;With ultrasonic welded ear loops. Jayashree Spun Bond presents a wide range of non woven polypropylene spun bond fabric in front of our clients that has excellent usage in medical scenarios. Material: 3 Ply. Usage/Application:  Coronavirus. Mask Securing Method:  Ear loop. Packaging Type: Box.",
 "We offering Disposable Face Mask. The offered face masks are available with bacterial filtration efficiency and plastic coated nose clip for comfort. Our adroit designers use high-grade basic material and the latest technology to manufacture these face masks which reduce the spread of infectious liquid droplets. Apart from this, clients can avail these face masks from us at nominal prices.",
-"We have carved a niche amongst the most trusted names in this business, engaged in offering a comprehensive range of 3 Ply Face Mask. Material: Polypropylene. Packaging Type: Box. Number of Ply: 3 Ply."]
+"We have carved a niche amongst the most trusted names in this business, engaged in offering a comprehensive range of 3 Ply Face Mask. Material: Polypropylene. Packaging Type: Box. Number of Ply: 3 Ply.",
+"3m 9504 IN FFP2 FACE MASK"]
 
 
 masque_list = ["HONEYWELL Disposable 3 PLY FACE MASK",
 "Z Plus Blue Disposable Doctor Mask",
 "3 Ply General Purpose Dispo Tragen non woven face mask",
 "Z Plus C-Cure Hospital Disposable Face Mask, For Surgical, 3",
-"Polypropylene Disposable 3 Ply Face Mask"]
+"Polypropylene Disposable 3 Ply Face Mask",
+"Disposable 3M 9504 In FFP2 Face Mas"]
 
 masque_brand_name = ["HONEYWELL",
 "Z Plus",
 "Jayashree",
 "Z Plus",
-"Phoenix"]
+"Phoenix",
+"3M"]
 
 
 masque_picture_list = ["https://5.imimg.com/data5/SELLER/Default/2021/2/RI/PW/XZ/45001431/3-ply-face-mask-500x500.jpg",
 "https://5.imimg.com/data5/DI/WP/OR/SELLER-15641972/disposable-doctor-mask-500x500.jpg",
 "https://5.imimg.com/data5/KG/OY/UA/SELLER-9173595/sugical-face-mask-500x500.jpg",
 "https://4.imimg.com/data4/UH/SE/MY-15641972/disposable-face-mask-500x500.jpg",
-"https://5.imimg.com/data5/SELLER/Default/2020/10/KC/DH/NR/54352145/3-ply-face-mask-500x500.jpg"]
+"https://5.imimg.com/data5/SELLER/Default/2020/10/KC/DH/NR/54352145/3-ply-face-mask-500x500.jpg",
+"https://5.imimg.com/data5/ANDROID/Default/2021/5/TM/DU/FI/9143489/3m-face-mask-500x500-1-jpg-500x500.jpg"]
 
 
 
@@ -150,8 +154,8 @@ bande_picture_list = ["https://3.imimg.com/data3/IU/OC/MY-7350969/elasto-adhesiv
 
 
 puts "Creating users"
-user1 = User.create!(user_name: Faker::Name.name, email: Faker::Internet.email, password: "password")
-user2 = User.create!(user_name: "Michel frédérique", email: "test@test.com", password: "azerty")
+user1 = User.create!(user_name: Faker::Name.name, email: "paul@my_sourcing.com", password: "password", role: "buyer")
+user2 = User.create!(user_name: "Michel frédérique", email: "test@test.com", password: "azerty", role: "supplier")
 
 
 puts "Creating masques"
@@ -166,7 +170,7 @@ masque_picture_list.each do |photo|
   unit_price_cents: Faker::Number.number(digits: 2),
   brand: masque_brand_name[i],
   average_rating: 1,
-  user: [user1, user2].sample)
+  user: user2)
   # masque.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
   masque.save!
   i += 1
@@ -185,7 +189,7 @@ catheter_picture_list.each do |photo|
   unit_price_cents: Faker::Number.number(digits: 2),
   brand: catheter_brand_name[i],
   average_rating: 1,
-  user: [user1, user2].sample)
+  user: user2)
   # catheter.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
   catheter.save!
   i += 1
@@ -206,7 +210,7 @@ scalpel_picture_list.each do |photo|
   unit_price_cents: Faker::Number.number(digits: 2),
   brand: scalpel_brand_name[i],
   average_rating: 1,
-  user: [user1, user2].sample)
+  user: user2)
   # scalpel.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
   scalpel.save!
   i += 1
@@ -226,7 +230,7 @@ seringue_picture_list.each do |photo|
   unit_price_cents: Faker::Number.number(digits: 2),
   brand: seringue_brand_name[i],
   average_rating: 1,
-  user: [user1, user2].sample)
+  user: user2)
   # seringue.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
   seringue.save!
   i += 1
@@ -246,7 +250,7 @@ bande_picture_list.each do |photo|
   unit_price_cents: Faker::Number.number(digits: 2),
   brand: bande_brand_name[i],
   average_rating: 1,
-  user: [user1, user2].sample)
+  user: user2)
   # bande.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
   bande.save!
   i += 1
