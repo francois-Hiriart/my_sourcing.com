@@ -1,1 +1,21 @@
-<h1>Hello</h1>
+<div class="main-container">
+<div class="cards" id="custom-cards">
+    <% @orders.each do |order| %>
+      <div class="card" style="width: 18rem;" id="cardgrid">
+
+        <div class="card-body">
+          <h4 class="card-title" style="color: #FF6713"><%= order.user_id %></h4>
+          <p class="card-text"><%= order.created_at%></p>
+          <div class="row">
+            <div class="col-md-6">
+              <a href="<%= order_path(order) %>" class="btn btn-primary">More Info</a>
+            </div>
+            <div class="col-md-6">
+              <h2 class="card-text btn btn-outline-primary"><b><%= order.price_cents %>Total XX €</b></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
