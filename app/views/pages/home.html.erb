@@ -2,11 +2,17 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 
-<%= simple_form_for :search, url: products_path, method: "GET" do |f| %>
+<%= simple_form_for :products, url: products_path, method: "GET" do |f| %>
             <div class="row">
               <div class="col-md-3">
-                <%= f.input :product, label: false,
+                <%= f.input :query, label: false,
                                         input_html: { placeholder: "que recherchez-vous ?" } %>
+              </div>
+               <div class="col-md-3">
+                <%= f.input :query_category, label: false, as: :check_boxes, collection: Order::CATEGORIES %>
+              </div>
+               <div class="col-md-3">
+                <%= f.submit "recherche" %>
               </div>
             </div>
             <% end %>
