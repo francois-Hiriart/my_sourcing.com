@@ -1,8 +1,5 @@
 
 <div class="main-container">
-  <%# <div class="container pt-3">
-    <h2 style="color: #FF6713">Toutes les cuisines</h2>
-  </div> %>
 
   <div class="cards" id="custom-cards">
      <% if @masques.present? %>
@@ -13,7 +10,7 @@
               <h2 class="card-title" style="color: #FF6713"><%= masque.brand %></h2>
               <div class="row">
                 <div class="col-md-6">
-                  <a href="<%= masque_path(masque) %>" class="btn btn-primary">voir plus</a>
+                  <%= link_to "Voir plus", masque_path(masque), class: "btn btn-primary" %>
                 </div>
                 <div class="col-md-6">
                   <h2 class="card-text btn btn-outline-primary"><b><%= masque.unit_price_cents %> €</b></h2>
@@ -23,14 +20,14 @@
           </div>
         <% end %>
     <% elsif @catheters.present? %>
-       <% @catheters.each do |catheter| %>
+      <% @catheters.each do |catheter| %>
         <div class="card" style="width: 18rem;" id="cardgrid">
             <div class="card-body">
               <h4 class="card-title" style="color: #FF6713"><%= catheter.name %></h4>
               <h2 class="card-title" style="color: #FF6713"><%= catheter.brand %></h2>
               <div class="row">
                 <div class="col-md-6">
-                  <a href="<%= masque_path(masque) %>" class="btn btn-primary">voir plus</a>
+                  <%= link_to "Voir plus", catheter_path(catheter), class: "btn btn-primary" %>
                 </div>
                 <div class="col-md-6">
                   <h2 class="card-text btn btn-outline-primary"><b><%= catheter.unit_price_cents %> €</b></h2>
@@ -38,9 +35,57 @@
               </div>
             </div>
           </div>
+    <% end %>
+    <% elsif @seringues.present? %>
+      <% @seringues.each do |seringue| %>
+        <div class="card" style="width: 18rem;" id="cardgrid">
+            <div class="card-body">
+              <h4 class="card-title" style="color: #FF6713"><%= seringue.name %></h4>
+              <h2 class="card-title" style="color: #FF6713"><%= seringue.brand %></h2>
+              <div class="row">
+                <div class="col-md-6">
+                  <%= link_to "Voir plus", seringue_path(seringue), class: "btn btn-primary" %>
+                </div>
+                <div class="col-md-6">
+                  <h2 class="card-text btn btn-outline-primary"><b><%= seringue.unit_price_cents %> €</b></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+    <% elsif @scalpels.present? %>
+      <% @scalpels.each do |scalpel| %>
+        <div class="card" style="width: 18rem;" id="cardgrid">
+            <div class="card-body">
+              <h4 class="card-title" style="color: #FF6713"><%= scalpel.name %></h4>
+              <h2 class="card-title" style="color: #FF6713"><%= scalpel.brand %></h2>
+              <div class="row">
+                <div class="col-md-6">
+                  <%= link_to "Voir plus", scalpel_path(scalpel), class: "btn btn-primary" %>
+                </div>
+                <div class="col-md-6">
+                  <h2 class="card-text btn btn-outline-primary"><b><%= scalpel.unit_price_cents %> €</b></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+    <% elsif @bandes.present? %>
+      <% @bandes.each do |bande| %>
+        <div class="card" style="width: 18rem;" id="cardgrid">
+            <div class="card-body">
+              <h4 class="card-title" style="color: #FF6713"><%= bande.name %></h4>
+              <h2 class="card-title" style="color: #FF6713"><%= bande.brand %></h2>
+              <div class="row">
+                <div class="col-md-6">
+                  <%= link_to "Voir plus", bande_path(bande), class: "btn btn-primary" %>
+                </div>
+                <div class="col-md-6">
+                  <h2 class="card-text btn btn-outline-primary"><b><%= bande.unit_price_cents %> €</b></h2>
+                </div>
+              </div>
+            </div>
+          </div>
         <% end %>
       <% end %>
-</div>
-
-
-
+  </div>
