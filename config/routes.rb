@@ -5,11 +5,11 @@ Rails.application.routes.draw do
 
   resources :orders
 
-  resources :masques
-  resources :catheters
-  resources :scalpels
-  resources :bandes
-  resources :seringues
+  resources :masques, only: [:index]
+  resources :catheters, only: [:index]
+  resources :scalpels, only: [:index]
+  resources :bandes, only: [:index]
+  resources :seringues, only: [:index]
 
   post 'orders/:id/validate', to: 'orders#validate'
   post 'orders/:id/propose_price', to: 'orders#propose_price'

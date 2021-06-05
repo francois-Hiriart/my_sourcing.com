@@ -86,16 +86,9 @@ ActiveRecord::Schema.define(version: 2021_06_03_171856) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "masque_id", null: false
-    t.bigint "catheter_id", null: false
-    t.bigint "scalpel_id", null: false
-    t.bigint "bande_id", null: false
-    t.bigint "seringue_id", null: false
-    t.index ["bande_id"], name: "index_orders_on_bande_id"
-    t.index ["catheter_id"], name: "index_orders_on_catheter_id"
-    t.index ["masque_id"], name: "index_orders_on_masque_id"
-    t.index ["scalpel_id"], name: "index_orders_on_scalpel_id"
-    t.index ["seringue_id"], name: "index_orders_on_seringue_id"
+    t.string "product_type"
+    t.bigint "product_id"
+    t.index ["product_type", "product_id"], name: "index_orders_on_product_type_and_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -140,7 +133,7 @@ ActiveRecord::Schema.define(version: 2021_06_03_171856) do
     t.string "business_activity"
     t.string "phone_number"
     t.string "user_name"
-    t.string "role"
+    t.string "role", default: "buyer"
     t.string "vat_number"
     t.string "siret_number"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -151,11 +144,6 @@ ActiveRecord::Schema.define(version: 2021_06_03_171856) do
   add_foreign_key "bandes", "users"
   add_foreign_key "catheters", "users"
   add_foreign_key "masques", "users"
-  add_foreign_key "orders", "bandes"
-  add_foreign_key "orders", "catheters"
-  add_foreign_key "orders", "masques"
-  add_foreign_key "orders", "scalpels"
-  add_foreign_key "orders", "seringues"
   add_foreign_key "orders", "users"
   add_foreign_key "scalpels", "users"
   add_foreign_key "seringues", "users"
