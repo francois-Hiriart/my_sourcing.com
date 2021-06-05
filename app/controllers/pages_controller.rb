@@ -17,6 +17,4 @@ class PagesController < ApplicationController
       else
       puts "nous ne disposons pas du produit que vous cherchez en stock. merci de contacter notre équipe achats via le formulaire de contact."
     end
-  end
-
 end
