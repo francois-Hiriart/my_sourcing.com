@@ -5,9 +5,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :maques, dependent: :destroy
+  has_many :masques, dependent: :destroy
   has_many :bandes, dependent: :destroy
-  has_many :cathéters, dependent: :destroy
+  has_many :catheters, dependent: :destroy
   has_many :scalpels, dependent: :destroy
   has_many :seringues, dependent: :destroy
   has_many :orders, dependent: :destroy
