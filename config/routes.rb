@@ -5,15 +5,11 @@ Rails.application.routes.draw do
 
   resources :orders
 
-  resources :masques, only: [:index]
-  resources :catheters, only: [:index]
-  resources :scalpels, only: [:index]
-  resources :bandes, only: [:index]
-  resources :seringues, only: [:index]
+  resources :products, only: [:index, :show]
 
   post 'orders/:id/validate', to: 'orders#validate'
   post 'orders/:id/propose_price', to: 'orders#propose_price'
   post 'orders/:id/confirm_shipping', to: 'orders#confirm_shipping'
-  get 'products', to: 'pages#index_category', as: :products
+  # get 'products_search', to: 'pages#index_category', as: :products_search
 
 end

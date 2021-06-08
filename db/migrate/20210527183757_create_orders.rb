@@ -6,6 +6,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.date :shipping_date
       t.float :price_cents
       t.references :user, null: false, foreign_key: true
+      t.references :product, null: false, foreign_key: true
 
       t.timestamps
     end

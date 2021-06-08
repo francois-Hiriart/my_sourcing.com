@@ -1,7 +1,6 @@
-class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+class ProductsController < ApplicationController
 
-  def index_category
+  def index
     sql_query = "name ILIKE :query OR description ILIKE :query"
     @products = Product.all
     if params[:products][:query_category][1]
@@ -10,5 +9,9 @@ class PagesController < ApplicationController
     if params[:products][:query]
       @products = @products.where(sql_query, query: "%#{params[:products][:query]}%")
     end
+  end
+
+  def show
+    @product = Product.find(params[:id])
   end
 end

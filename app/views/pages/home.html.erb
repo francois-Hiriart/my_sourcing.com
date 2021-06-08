@@ -16,7 +16,7 @@
             </div>
             <div class="row justify-content-center">
               <div class="">
-                <%= f.input :query_category, label: false, as: :check_boxes, collection: Order::CATEGORIES %>
+                <%= f.input :query_category, label: false, as: :check_boxes, collection: Product.categories %>
               </div>
             </div>
         <% end %>

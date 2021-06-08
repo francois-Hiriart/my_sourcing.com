@@ -4,7 +4,7 @@ class OrderPolicy < ApplicationPolicy
       if user.buyer?
         scope.where(user_id: user.id)
       else
-        scope.from_user(user)
+        scope.where(products: {user_id: user.id})
       end
     end
   end
