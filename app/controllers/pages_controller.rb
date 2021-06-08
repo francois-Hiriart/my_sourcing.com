@@ -3,18 +3,23 @@ class PagesController < ApplicationController
 
   def index_category
     sql_query = "name ILIKE :query OR description ILIKE :query"
-    if params[:products][:query_category][1] == "masque"
-      @masques = Masque.where(sql_query, query: "%#{params[:products][:query]}%")
-    elsif params[:products][:query_category][1] == "catheter"
-      @catheters = Catheter.where(sql_query, query: "%#{params[:products][:query]}%")
-    elsif params[:products][:query_category][1] == "scalpel"
-      @scalpels = Scalpel.where(sql_query, query: "%#{params[:products][:query]}%")
-    elsif params[:products][:query_category][1] == "seringue"
-      @seringues = Seringue.where(sql_query, query: "%#{params[:products][:query]}%")
-    elsif params[:products][:query_category][1] == "bande"
-      @bandes = Bande.where(sql_query, query: "%#{params[:products][:query]}%")
-    else
-      flash.notice = "nous ne disposons pas du produit que vous cherchez en stock. merci de contacter notre équipe achats via le formulaire de contact."
+    @products = Product.all
+    if params[:products][:query_category][1]
+      @products = @products.where(category: params[:products][:query_category][1])
+    end
+    if params[:products][:query]
+      @products = @products.where(sql_query, query: "%#{params[:products][:query]}%")
+    end
+
+    #   @masques = Masque.where(sql_query, query: "%#{params[:products][:query]}%")
+    # elsif params[:products][:query_category][1] == "catheter"
+    #   @catheters = Catheter.where(sql_query, query: "%#{params[:products][:query]}%")
+    # elsif params[:products][:query_category][1] == "scalpel"
+    #   @scalpels = Scalpel.where(sql_query, query: "%#{params[:products][:query]}%")
+    # elsif params[:products][:query_category][1] == "seringue"
+    #   @seringues = Seringue.where(sql_query, query: "%#{params[:products][:query]}%")
+    # elsif params[:products][:query_category][1] == "bande"
+    #   @bandes = Bande.where(sql_query, query: "%#{params[:products][:query]}%")
     end
   end
 end

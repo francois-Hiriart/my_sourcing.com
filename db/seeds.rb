@@ -13,6 +13,7 @@ Catheter.destroy_all
 Scalpel.destroy_all
 Seringue.destroy_all
 Bande.destroy_all
+Order.destroy_all
 
 masque_description = ["Surgical Mask - 3 ply pleated lightweight breathable material. Tested for BFE < 95%. Sanitizing Gel : 99.99% effective sterilization rate",
 "We are offering Disposable Doctor Mask. Material: Single Ply Non-Woven. Mask Securing Method:  Earloop, Head Band, Tie On. Color: blue. Application: hospital. Packaging Type: Carton Box, PP Bag",
@@ -254,4 +255,20 @@ bande_picture_list.each do |photo|
   # bande.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
   bande.save!
   i += 1
+end
+
+puts "creating orders"
+
+category_name = ["masque", "bande", "catheter", "seringue", "scalpel"]
+
+category_name.each do |category|
+
+order = Order.new(product_quantity: Faker::Number.between(from: 1, to: 100000),
+  shipping_date: Faker::Date.between(from: '2021-06-01', to: '2021-06-08'),
+  delivery_date: Faker::Date.between(from: '2021-06-23', to: '2021-06-30'),
+  price_cents: Faker::Number.number(digits: 2),
+  product_type: category_name[i],
+  product_id: Faker::Number.number(digits: 1),
+  user: user1)
+  order.save!
 end
