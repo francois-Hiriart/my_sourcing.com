@@ -15,7 +15,7 @@
               </div>
             </div>
             <div class="row justify-content-center">
-              <div class="">
+              <div class="form-check form-check-inline">
                 <%= f.input :query_category, label: false, as: :check_boxes, collection: Product.categories %>
               </div>
             </div>
@@ -27,71 +27,134 @@
   </div>
 </div>
 
-<div class="container py-5 text-center" style="bg-color">
+<div class="container py-5 text-center" >
   <h2 class="pb-2m primary-color"><b>Découvrez Monsourcing.com</b></h2>
-  <p class="display-6">Voici les fonctionnalités et avantages que nous proposons à ceux d'entre vous qui veulent tenter Kitch2be</p>
+  <p class="display-6">Voici les fonctionnalités et avantages que nous proposons à ceux d'entre vous qui veulent tenter MS.com</p>
 </div>
 
 <div class="container">
 
   <div class="row row-cols-1 row-cols-md-2 g-4">
-    <div class="card m-2 bg-primary border-0 shadow-sm p-3 mb-5 bg-body rounded" style="max-width: 540px;">
+    <div class="card m-2 border-0 shadow-sm p-3 mb-5 bg-body rounded" style="max-width: 540px;">
       <div class="row g-0">
         <div class="col-md-4 ">
-          <%= image_tag "", alt: "", class: "img-fluid rounded position-absolute top-50 start-50 translate-middle"%>
+          <%= image_tag "datareport.png", alt: "", class: "img-fluid rounded position-absolute top-50 start-50 translate-middle"%>
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title" style="color: primary"><b>Booker son moment cuisine</b></h5>
-            <p class="card-text">Selectionnez le moment qui vous convient et organisez vous avec votre hôte de cuisine.</p>
+            <h5 class="card-title text-primary"><b>Simple et Ergonomique</b></h5>
+            <p class="card-text">Nous avons conçu le logiciel le plus ergonomique dans le domaine des Appels d'Offres. Nos équipes techniques collaborent constamment avec nos clients pour améliorer MS.com</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="card m-2 bg-primary border-0 shadow-sm p-3 mb-5 bg-body rounded" style="max-width: 540px;">
+    <div class="card m-2 border-0 shadow-sm p-3 mb-5 bg-body rounded" style="max-width: 540px;">
       <div class="row g-0">
         <div class="col-md-4">
-          <%= image_tag "", alt: "", class: "img-fluid rounded position-absolute top-50 start-50 translate-middle"%>
+          <%= image_tag "teamMS.png", alt: "", class: "img-fluid rounded position-absolute top-50 start-50 translate-middle"%>
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title" style="color: primary"><b>Apprenez à cuisiner</b></h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <h5 class="card-title text-primary"><b>Un accompagnement dédié</b></h5>
+            <p class="card-text">Notre équipe opérationnelle accompagne les entreprises du bâtiment dans la prise en main du logiciel pour faciliter leurs réponses sur vos projets et la gestion des documents</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="card m-2 bg-primary border-0 shadow-sm p-3 mb-5 bg-body rounded" style="max-width: 540px;">
+    <div class="card m-2 border-0 shadow-sm p-3 mb-5 bg-body rounded" style="max-width: 540px;">
       <div class="row g-0">
         <div class="col-md-4">
-          <%= image_tag "", alt: "", class: "img-fluid rounded position-absolute top-50 start-50 translate-middle"%>
+          <%= image_tag "security.png", alt: "", class: "img-fluid rounded position-absolute top-50 start-50 translate-middle"%>
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title" style="color: primary"><b>Créer de nouvelles rencontres</b></h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <h5 class="card-title text-primary"><b>Sécurité des données</b></h5>
+            <p class="card-text">Tous les projets, devis, et vos informations personnelles sont 100% sécurisés sur le logiciel et uniquement visibles par vous. Nous respectons toutes les obligations légales (RGPD)</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="card m-2 bg-primary border-0 shadow-sm p-3 mb-5 bg-body rounded" style="max-width: 540px;">
+    <div class="card m-2 border-0 shadow-sm p-3 mb-5 bg-body rounded" style="max-width: 540px;">
       <div class="row g-0">
         <div class="col-md-4">
-          <%= image_tag "", alt: "Kitch2be", class: "img-fluid rounded position-absolute top-50 start-50 translate-middle"%>
+          <%= image_tag "serchsupplier", alt: "no", class: "img-fluid rounded position-absolute top-50 start-50 translate-middle"%>
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title" style="color: primary"><b>Faites des economies</b></h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <h5 class="card-title text-primary"><b>Un outil de gestion complet</b></h5>
+            <p class="card-text">Gérez sereinement l'ensemble du processus de consultation, stockage des demandes, suivi des réponses (devis), tableau de bord avec indicateurs, export d'analyse, etc.</p>
           </div>
         </div>
       </div>
     </div>
 
   </div>
+</div>
+  <div class="py-5 bg-primary text-white">
+    <div class="container">
+      <div class="container pb-3 text-center" >
+        <h2 class="pb-2m primary-color"><b>L'équipe</b></h2>
+        <p class="display-6">Une équipe jeune et dynamique</p>
+      </div>
 
+      <div class="row text-center">
+        <div class="col-lg-4">
+          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="Xiaoxiao.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+          <h2>Xiaoxiao Wu</h2>
+        </div>
+        <div class="col-lg-4">
+          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+          <h2>François Hiriart</h2>
+        </div>
+        <div class="col-lg-4">
+          <svg class="bd-placeholder-img rounded-circle " width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+          <h2>Assim Bakkar</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="m-5 row align-items-center py-5">
+    <div class="col-12 col-md-7 col-lg-6" data-aos="fade-right">
+      <h2>La gestion de vos appels<br><span class="text-primary">d'offres centralisée</span>.</h2>
+      <p class="fs-lg text-muted mb-6">Dites adieu aux consultations restées sans réponse, au traitement manuel de fichiers Excel et à la perte d’information.</p>
+      <div class="d-flex">
+        <div class="icon text-primary">
+          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><path d="M12 8H8a4 4 0 00-4 4v1a3 3 0 003 3v2a5 5 0 01-5-5v-1a6 6 0 016-6h4V4.728a.5.5 0 01.8-.4l2.856 2.133a.5.5 0 01-.001.802l-2.857 2.121A.5.5 0 0112 8.983V8z" fill="#335EEA"/><path d="M12.058 16H16a4 4 0 004-4v-1a3 3 0 00-3-3V6a5 5 0 015 5v1a6 6 0 01-6 6h-3.942v.983a.5.5 0 01-.798.401l-2.857-2.12a.5.5 0 010-.803l2.856-2.134a.5.5 0 01.8.401V16z" fill="#335EEA" opacity=".3"/></g></svg>
+        </div>
+
+        <div class="ms-5">
+          <h4 class="mb-1">Transparence des échanges</h4>
+          <p class="text-muted mb-6">Contactez et demandez des devis en un seuk clic</p>
+        </div>
+      </div>
+
+      <div class="d-flex">
+        <div class="icon text-primary">
+          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><path d="M17.272 8.685a1 1 0 111.456-1.37l4 4.25a1 1 0 010 1.37l-4 4.25a1 1 0 01-1.456-1.37l3.355-3.565-3.355-3.565zm-10.544 0L3.373 12.25l3.355 3.565a1 1 0 01-1.456 1.37l-4-4.25a1 1 0 010-1.37l4-4.25a1 1 0 011.456 1.37z" fill="#335EEA"/><rect fill="#335EEA" opacity=".3" transform="rotate(15 12 12)" x="11" y="4" width="2" height="16" rx="1"/></g></svg>
+        </div>
+
+        <div class="ms-5">
+          <h4 class="mb-1">L'annuaire le plus complet</h4>
+          <p class="text-muted mb-6 mb-md-0">Oubliez Google et gagnez du temps</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-5 col-lg-6">
+      <div class="w-md-150 w-lg-130 position-relative" data-aos="fade-left">
+        <div class="shape shape-fluid-y shape-blur-4 text-gray-200">
+          <div class="img-skewed img-skewed-start">
+            <img src="https://landkit.goodthemes.co/assets/img/screenshots/desktop/dashkit.jpg" class="screenshot img-fluid img-skewed-item" alt="...">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 </div>
 
