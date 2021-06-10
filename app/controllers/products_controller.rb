@@ -12,6 +12,18 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    @order = Order.new
+    @orders = @product.orders
+  end
+
+  private
+
+  def product_params
+    params.require(:product).permit(:name, :model, :description, :equipments, :unit_price_cents, :available_quantity, :brand)
+  end
+
+  def set_product
+    @product = Prodcut.find(params[:id])
+    authorize @Product
   end
 end

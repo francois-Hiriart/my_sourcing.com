@@ -1,14 +1,16 @@
 class OrdersController < ApplicationController
+  before_action :set_order, only: [ :show, :destroy]
+  before_action :set_product, only: [:show, :destroy]
+
   def index
     @orders = current_user.orders
   end
 
   def create
-    @order = Order.new(order_params)
-    @order.user = current_user
-    #authorize @order
-    if @order.save
-      redirect_to order_path(@order)
+    @order = Order.new(order_params.merge(user: current_user))
+    @order.product = @product
+    if @order.save!
+      redirect_to orders_path
     else
       render :new
     end
@@ -19,7 +21,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    @product = @order.product
   end
 
   def destroy
@@ -41,11 +43,16 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:delivery_date, :product_quantity, :shipping_date, :price_cents, :created_at, :updated_at, :user_id, :product_id)
+    params.require(:order).permit(:delivery_date, :product_quantity, :shipping_date, :price_cents, :product_id)
   end
 
   def set_order
     @order = Order.find(params[:id])
     authorize @order
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
+    authorize @product
   end
 end
