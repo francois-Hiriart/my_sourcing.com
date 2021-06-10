@@ -185,97 +185,115 @@ masque_picture_list.each do |photo|
 end
 
 
-# puts "Creating catheter"
+puts "Creating catheter"
 
-# i = 0
+i = 0
 
-# catheter_picture_list.each do |photo|
-#  photo = URI.open(photo)
-#  catheter = Catheter.new(name: catheter_list[i],
-#   description: catheter_description[i],
-#   available_quantity: Faker::Number.between(from: 1, to: 100000),
-#   unit_price_cents: Faker::Number.number(digits: 2),
-#   brand: catheter_brand_name[i],
-#   average_rating: 1,
-#   user: user2)
-#   # catheter.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
-#   catheter.save!
-#   i += 1
+catheter_picture_list.each do |photo|
+ photo = URI.open(photo)
+ catheter = Product.new(name: catheter_list[i],
+  description: catheter_description[i],
+  available_quantity: Faker::Number.between(from: 1, to: 100000),
+  unit_price_cents: Faker::Number.number(digits: 2),
+  brand: catheter_brand_name[i],
+  average_rating: 1,
+  category: "catheter",
+  user: user2)
+  # catheter.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
+  catheter.save!
+  order = Order.new(product_quantity: Faker::Number.between(from: 1, to: 100000),
+  shipping_date: Faker::Date.between(from: '2021-06-01', to: '2021-06-08'),
+  delivery_date: Faker::Date.between(from: '2021-06-23', to: '2021-06-30'),
+  price_cents: Faker::Number.number(digits: 2),
+  product_id: catheter.id,
+  user: user1)
+  order.save!
+  i += 1
 
-#   end
-
-
-
-# puts "Creating scalpel"
-
-# i = 0
-
-# scalpel_picture_list.each do |photo|
-#  photo = URI.open(photo)
-#  scalpel = Scalpel.new(name: scalpel_list[i],
-#   description: scalpel_description[i],
-#   available_quantity: Faker::Number.between(from: 1, to: 100000),
-#   unit_price_cents: Faker::Number.number(digits: 2),
-#   brand: scalpel_brand_name[i],
-#   average_rating: 1,
-#   user: user2)
-#   # scalpel.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
-#   scalpel.save!
-#   i += 1
-
-#   end
+  end
 
 
-# puts "Creating seringue"
 
-# i = 0
+puts "Creating scalpel"
 
-# seringue_picture_list.each do |photo|
-#  photo = URI.open(photo)
-#  seringue = Seringue.new(name: seringue_list[i],
-#   description: seringue_description[i],
-#   available_quantity: Faker::Number.between(from: 1, to: 100000),
-#   unit_price_cents: Faker::Number.number(digits: 2),
-#   brand: seringue_brand_name[i],
-#   average_rating: 1,
-#   user: user2)
-#   # seringue.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
-#   seringue.save!
-#   i += 1
+i = 0
 
-#   end
+scalpel_picture_list.each do |photo|
+ photo = URI.open(photo)
+ scalpel = Product.new(name: scalpel_list[i],
+  description: scalpel_description[i],
+  available_quantity: Faker::Number.between(from: 1, to: 100000),
+  unit_price_cents: Faker::Number.number(digits: 2),
+  brand: scalpel_brand_name[i],
+  average_rating: 1,
+  category: "scalpel",
+  user: user2)
+  # scalpel.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
+  scalpel.save!
+  order = Order.new(product_quantity: Faker::Number.between(from: 1, to: 100000),
+  shipping_date: Faker::Date.between(from: '2021-06-01', to: '2021-06-08'),
+  delivery_date: Faker::Date.between(from: '2021-06-23', to: '2021-06-30'),
+  price_cents: Faker::Number.number(digits: 2),
+  product_id: scalpel.id,
+  user: user1)
+  order.save!
+  i += 1
+
+  end
 
 
-# puts "Creating bande"
+puts "Creating seringue"
 
-# i = 0
+i = 0
 
-# bande_picture_list.each do |photo|
-#  photo = URI.open(photo)
-#  bande = Bande.new(name: bande_list[i],
-#   description: bande_description[i],
-#   available_quantity: Faker::Number.between(from: 1, to: 100000),
-#   unit_price_cents: Faker::Number.number(digits: 2),
-#   brand: bande_brand_name[i],
-#   average_rating: 1,
-#   user: user2)
-#   # bande.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
-#   bande.save!
-#   i += 1
-# end
+seringue_picture_list.each do |photo|
+ photo = URI.open(photo)
+ seringue = Product.new(name: seringue_list[i],
+  description: seringue_description[i],
+  available_quantity: Faker::Number.between(from: 1, to: 100000),
+  unit_price_cents: Faker::Number.number(digits: 2),
+  brand: seringue_brand_name[i],
+  average_rating: 1,
+  category: "seringue",
+  user: user2)
+  # seringue.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
+  seringue.save!
+  order = Order.new(product_quantity: Faker::Number.between(from: 1, to: 100000),
+  shipping_date: Faker::Date.between(from: '2021-06-01', to: '2021-06-08'),
+  delivery_date: Faker::Date.between(from: '2021-06-23', to: '2021-06-30'),
+  price_cents: Faker::Number.number(digits: 2),
+  product_id: seringue.id,
+  user: user1)
+  order.save!
+  i += 1
 
-# puts "creating orders"
+  end
 
-# category_name = ["masque", "bande", "catheter", "seringue", "scalpel"]
 
-# category_name.each do |category|
+puts "Creating bande"
 
-# order = Order.new(product_quantity: Faker::Number.between(from: 1, to: 100000),
-#   shipping_date: Faker::Date.between(from: '2021-06-01', to: '2021-06-08'),
-#   delivery_date: Faker::Date.between(from: '2021-06-23', to: '2021-06-30'),
-#   price_cents: Faker::Number.number(digits: 2),
-#   product_type: category_name[i],
-#   product_id: Faker::Number.number(digits: 1),
-#   user: user1)
-#   order.save!
-# end
+i = 0
+
+bande_picture_list.each do |photo|
+ photo = URI.open(photo)
+ bande = Product.new(name: bande_list[i],
+  description: bande_description[i],
+  available_quantity: Faker::Number.between(from: 1, to: 100000),
+  unit_price_cents: Faker::Number.number(digits: 2),
+  brand: bande_brand_name[i],
+  average_rating: 1,
+  category: "bande",
+  user: user2)
+  # bande.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
+  bande.save!
+  order = Order.new(product_quantity: Faker::Number.between(from: 1, to: 100000),
+  shipping_date: Faker::Date.between(from: '2021-06-01', to: '2021-06-08'),
+  delivery_date: Faker::Date.between(from: '2021-06-23', to: '2021-06-30'),
+  price_cents: Faker::Number.number(digits: 2),
+  product_id: bande.id,
+  user: user1)
+  order.save!
+  i += 1
+end
+
+
