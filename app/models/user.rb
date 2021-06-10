@@ -8,9 +8,6 @@ class User < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :products, dependent: :destroy
 
-
-  enum status: [ :buyer, :supplier ]
-
   # validates :role, :company_name, :vat_number, :siret_number, presence: true
 
 end

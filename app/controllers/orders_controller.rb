@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [ :show, :destroy]
+  before_action :set_order, only: [:show, :destroy]
   before_action :set_product, only: [:show, :destroy]
 
   def index
@@ -8,8 +8,8 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params.merge(user: current_user))
-    @order.product = @product
-    if @order.save!
+    @order.product = Product.find(params[:product_id])
+    if @order.save
       redirect_to orders_path
     else
       render :new
