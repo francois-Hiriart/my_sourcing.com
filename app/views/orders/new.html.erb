@@ -2,7 +2,7 @@
   <div class="card p-3 justify-content-center" style="width: 50rem;">
     <div class="card-body">
       <h2 style="color: #FF6713"><center>Quotes Request</center></h2>
-      <%= simple_form_for [@product, @order] do |f| %>
+      <%= simple_form_for [@product, @order], url: product_orders_path, method: :post do |f| %>
 
       <div class="row">
 
