@@ -1,21 +1,15 @@
 <div class="main-container">
   <div class="cards" id="custom-cards">
-    <h1>Order</h1>
-          <div class="card" style="width: 18rem;" id="cardgrid">
-            <div class="card-body">
-             <h4 class="card-title" style="color: #FF6713"><%= order.product_quantity %></h4>
-                    <p class="card-text"><%= order.product.name%></p>
-                    <p class="card-text"><%= order.created_at%></p>
-                      <p class="card-text"><%= order.shipping_date%></p>
-                    <p class="card-text"><%= order.delivery_date%></p>
-                    <p class="card-text"><%= order.price_cents%></p>
-                    <p class="card-text"><%= order.status%></p>
-              <div class="row">
-                <div class="col-md-6">
-                  <%= link_to "Voir plus", order_path(order), class: "btn btn-primary" %>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="card" style="width: 18rem;" id="cardgrid">
+      <div class="card-body">
+        <h4 class="card-title" style="color: #FF6713"><%= order.product_quantity %></h4>
+        <p class="card-text"><%= order.product.name%></p>
+        <p class="card-text"><%= order.created_at%></p>
+        <p class="card-text"><%= order.shipping_date%></p>
+        <p class="card-text"><%= order.delivery_date%></p>
+        <p class="card-text"><%= order.price_cents%></p>
+        <p class="card-text"><%= order.status%></p>
+      </div>
+    </div>
   </div>
-  </div>
+</div>

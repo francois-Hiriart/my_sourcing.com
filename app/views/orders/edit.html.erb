@@ -1,0 +1,29 @@
+
+     <% if current_user.role == "supplier"%>
+       <%= simple_form_for [@order] do |f| %>
+       <div class="row">
+          <div class="col-6">
+            <%= f.input :shipping_date, label:'Shipping Date' %>
+          </div>
+          <div class="col-6">
+            <%= f.input :delivery_date, label:'Delivery Date'%>
+          </div>
+          <div class="col-6">
+            <%= f.input :price_cents, label:'Total price'%>
+          </div>
+          <%= f.button :submit, "Propose order terms", class: 'btn btn-primary' %>
+         <% end %>
+        </div>
+      <% end %>
+
+    <% if current_user.role == "buyer" %>
+     <%= simple_form_for [@order] do |f| %>
+       <div class="custom-control custom-switch">
+         <%= f.input :status, class: "custom-control-input"  %>
+       </div>
+       <div class="actions">
+         <%= f.button :submit, "valider", class: 'btn btn-primary' %>
+       </div>
+       <% end %>
+    <% end %>
+

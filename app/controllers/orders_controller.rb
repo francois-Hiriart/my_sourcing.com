@@ -3,7 +3,14 @@ class OrdersController < ApplicationController
 
 
   def index
-    @orders = current_user.orders
+    if current_user.role == "buyer"
+      user_orders = current_user.orders
+    else
+      user_orders = Order.joins(:product).where(products: {user_id:31})
+    end
+
+    @requests = user_orders.where(status: false)
+    @orders = user_orders.where(status: true)
   end
 
   def create
@@ -41,7 +48,7 @@ class OrdersController < ApplicationController
       @order.delivery_date = params[:delivery_date]
     end
     if @order.save
-      redirect_to order_path(@order)
+      redirect_to orders_path
     else
       render :edit
     end

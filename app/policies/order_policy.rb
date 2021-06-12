@@ -1,7 +1,7 @@
 class OrderPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-        scope.all
+      scope.all
     end
   end
 
@@ -18,18 +18,15 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    create?
   end
 
-  def propose_price?
-    return false unless user.supplier? && order.product.user_id == user.id
+  def edit?
+    true
   end
 
-  def validate?
-    return false unless user.supplier? && order.product.user_id == user.id
+  def update?
+    edit?
   end
 
-  def confirm_shipping?
-    return false unless user.supplier? && order.product.user_id == user.id
-  end
 end
