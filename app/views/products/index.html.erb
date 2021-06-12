@@ -1,26 +1,49 @@
+<div class="container py-3">
+  <div class="card center w-75">
+      <div class="card-body ">
 
-<div class="main-container">
+        <%= simple_form_for :kitchens_filter, url: products_path, method: "GET" do |f| %>
+          <div class="row justify-content-center">
+            <div class="col-md-9">
+              <%= f.input :query, label: false,
+                                      input_html: { placeholder: "Nouvelle recherche ?" } %>
+            </div>
+            <div class="col-md-1">
+              <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+                <span><i class="fas fa-search"></i></span>
+              <% end %>
+            </div>
 
-  <div class="cards" id="custom-cards">
-     <% if @products.present? %>
-       <% @products.each do |product| %>
-          <div class="card" style="width: 18rem;" id="cardgrid">
+          </div>
+          <% end %>
+      </div>
+  </div>
+  <h1 class="text-primary font-weight-bold p-2">Resultats de la recherche</h1>
+  <div class="p-3 row row-cols-2 row-cols-md-4 g-4">
+    <% if @products.present? %>
+      <% @products.each do |product| %>
+        <div class="col">
+          <div class="card border border-primary shadow-sm" id="cardi">
+            <%= image_tag "https://5.imimg.com/data5/SELLER/Default/2020/10/GK/JQ/IQ/44285273/whatsapp-image-2020-10-08-at-1-26-52-pm-500x500.jpeg", alt: "", class: "card-img-top p-2"%>
             <div class="card-body">
-              <h4 class="card-title" style="color: #FF6713"><%= product.name %></h4>
-              <h2 class="card-title" style="color: #FF6713"><%= product.brand %></h2>
+              <h5 class="card-title text-primary font-weight-bold"><%= product.name %></h5>
+              <p class="card-content">Marque : <%= product.brand %></p>
               <div class="row">
                 <div class="col-md-6">
-                  <%= link_to "Voir plus", product_path(product), class: "btn btn-primary" %>
+                  <%= link_to "Voir ...", product_path(product), class: "btn btn-primary" %>
                 </div>
                 <div class="col-md-6">
-                  <%= link_to "commander ce produit", new_product_order_path(product), class: "btn btn-primary" %>
-                </div>
-                <div class="col-md-6">
-                  <h2 class="card-text btn btn-outline-primary"><b><%= product.unit_price_cents %> €</b></h2>
+                  <p class="text btn btn-outline-primary"><b><%= product.unit_price_cents %> €</b></p>
                 </div>
               </div>
             </div>
           </div>
-        <% end %>
+        </div>
       <% end %>
+    <% end %>
   </div>
+</div>
+
+<%# <div class="col-md-8">
+  <%= link_to "commander ce produit", new_product_order_path(product), class: "btn btn-primary" %>
+<%# </div> %>
