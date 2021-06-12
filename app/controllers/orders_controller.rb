@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
     if current_user.role == "buyer"
       user_orders = current_user.orders
     else
-      user_orders = Order.joins(:product).where(products: {user_id:31})
+      user_orders = Order.joins(:product).where(products: {user_id: current_user.id})
     end
 
     @requests = user_orders.where(status: false)
@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params.merge(user: current_user))
+    @order = Order.new(create_order_params.merge(user: current_user))
     @order.product = Product.find(params[:product_id])
     if @order.save
       redirect_to orders_path
@@ -40,14 +40,11 @@ class OrdersController < ApplicationController
   end
 
   def update
-    if current_user.role == "buyer"
-      @order.status = true
-    else
-      @order.price_cents = params[:price_cents]
-      @order.shipping_date = params[:shipping_date]
-      @order.delivery_date = params[:delivery_date]
-    end
-    if @order.save
+    @request = Order.find(params[:id])
+
+    form_params = current_user.role == "buyer" ? update_buyer_params : update_supplier_params
+
+    if @request.update(form_params)
       redirect_to orders_path
     else
       render :edit
@@ -56,8 +53,16 @@ class OrdersController < ApplicationController
 
   private
 
-  def order_params
-    params.require(:order).permit(:delivery_date, :product_quantity, :shipping_date, :price_cents, :product_id)
+  def create_order_params
+    params.require(:order).permit(:product_quantity)
+  end
+
+  def update_buyer_params
+    params.require(:order).permit(:status)
+  end
+
+  def update_supplier_params
+    params.require(:order).permit(:shipping_date, :delivery_date, :price_cents)
   end
 
   def set_order
