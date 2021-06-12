@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-
+    @recommanded_products = Product.where(category: @product.category).limit(4)
   end
 
   private
