@@ -2,35 +2,16 @@
   <div class="card p-3 justify-content-center" style="width: 50rem;">
     <div class="card-body">
       <h2 style="color: #FF6713"><center>Quotes Request</center></h2>
+      <% if current_user.role = "buyer" %>
       <%= simple_form_for [@product, @order], url: product_orders_path, method: :post do |f| %>
-
       <div class="row">
-
       <div class="row">
         <div class="col-6">
-          <%= f.input :product_quantity, label:'Quantity' %>
+      <%= f.input :product_quantity, label:'Quantity' %>
          </div>
-
-       <div class="row">
-        <div class="col-6">
-          <%= f.input :shipping_date, label:'Shipping Date' %>
-        </div>
-        <div class="col-6">
-          <%= f.input :delivery_date, label:'Delivery Date'%>
-        </div>
-      </div>
       <%= f.button :submit, "Request Quotes", class: 'btn btn-primary' %>
+       <% end %>
        <% end %>
     </div>
   </div>
 </div>
-
-<%= form_with(model: @order, local: true) do |form| %>
- <div class="custom-control custom-switch">
-    <%= form.check_box :active, class: "custom-control-input", id: "customSwitch1"   %>
-  <label class="custom-control-label" for="customSwitch1"> Valider la commande </label>
- </div>
- <div class="actions">
-     <%= form.submit %>
- </div>
-<% end %>

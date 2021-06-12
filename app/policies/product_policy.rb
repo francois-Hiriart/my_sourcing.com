@@ -1,4 +1,4 @@
-class OrderPolicy < ApplicationPolicy
+class ProductPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -6,6 +6,10 @@ class OrderPolicy < ApplicationPolicy
   end
 
  def create?
+  true
+ end
+
+ def show?
   true
  end
 end
