@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
     if current_user.role == "buyer"
       user_orders = current_user.orders
     else
-      user_orders = Order.joins(:product).where(products: {user_id:31})
+      user_orders = Order.joins(:product).where(products: {user_id: current_user.id})
     end
 
     @requests = user_orders.where(status: false)
@@ -57,7 +57,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:delivery_date, :product_quantity, :shipping_date, :price_cents, :product_id)
+    params.require(:order).permit(:delivery_date, :product_quantity, :shipping_date, :price_cents, :status)
   end
 
   def set_order

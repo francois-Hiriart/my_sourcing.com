@@ -177,7 +177,6 @@ masque_picture_list.each do |photo|
   order = Order.new(product_quantity: Faker::Number.between(from: 1, to: 100000),
   shipping_date: Faker::Date.between(from: '2021-06-01', to: '2021-06-08'),
   delivery_date: Faker::Date.between(from: '2021-06-23', to: '2021-06-30'),
-  price_cents: Faker::Number.number(digits: 2),
   product_id: masque.id,
   status: false,
   user: user1)
@@ -205,7 +204,6 @@ catheter_picture_list.each do |photo|
   order = Order.new(product_quantity: Faker::Number.between(from: 1, to: 100000),
   shipping_date: Faker::Date.between(from: '2021-06-01', to: '2021-06-08'),
   delivery_date: Faker::Date.between(from: '2021-06-23', to: '2021-06-30'),
-  price_cents: Faker::Number.number(digits: 2),
   product_id: catheter.id,
   user: user1)
   order.save!
@@ -234,7 +232,6 @@ scalpel_picture_list.each do |photo|
   order = Order.new(product_quantity: Faker::Number.between(from: 1, to: 100000),
   shipping_date: Faker::Date.between(from: '2021-06-01', to: '2021-06-08'),
   delivery_date: Faker::Date.between(from: '2021-06-23', to: '2021-06-30'),
-  price_cents: Faker::Number.number(digits: 2),
   product_id: scalpel.id,
   user: user1)
   order.save!
@@ -262,7 +259,6 @@ seringue_picture_list.each do |photo|
   order = Order.new(product_quantity: Faker::Number.between(from: 1, to: 100000),
   shipping_date: Faker::Date.between(from: '2021-06-01', to: '2021-06-08'),
   delivery_date: Faker::Date.between(from: '2021-06-23', to: '2021-06-30'),
-  price_cents: Faker::Number.number(digits: 2),
   product_id: seringue.id,
   user: user1)
   order.save!
@@ -290,7 +286,6 @@ bande_picture_list.each do |photo|
   order = Order.new(product_quantity: Faker::Number.between(from: 1, to: 100000),
   shipping_date: Faker::Date.between(from: '2021-06-01', to: '2021-06-08'),
   delivery_date: Faker::Date.between(from: '2021-06-23', to: '2021-06-30'),
-  price_cents: Faker::Number.number(digits: 2),
   product_id: bande.id,
   user: user1)
   order.save!

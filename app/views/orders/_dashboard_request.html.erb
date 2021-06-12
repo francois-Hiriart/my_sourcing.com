@@ -7,7 +7,6 @@
         <p class="card-text"><%= request.created_at%></p>
         <p class="card-text"><%= request.shipping_date%></p>
         <p class="card-text"><%= request.delivery_date%></p>
-        <p class="card-text"><%= request.price_cents%></p>
         <p class="card-text"><%= request.status%></p>
         <div class="flat-card-actions">
           <%= link_to 'form_edit', edit_order_path(request) %>
