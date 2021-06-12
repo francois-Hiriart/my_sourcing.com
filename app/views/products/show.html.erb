@@ -1,69 +1,77 @@
 <div class="container">
-  <div class="row">
-  <div class="col-6 card">
+
+  <div class="row justify-content-center">
+
+  <div class="col-6 card border border-primary shadow-sm" id="cardi">
     <img class="card-img" src="https://www.purepara.com/19563-large_default/baccide-masque-virucide-anti-viral-actif-longue-duree-bleu.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text"><%= @product.name %></p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
   </div>
 
-  <div class="col-3 card">
+  <div class="col-3 card border border-primary shadow-sm" id="cardi" >
 
-    <div class="=row">
+    <div class="=row justify-content-center">
       <div class="card">
-             <p><i class="fas fa-ruler-combined"></i>Brand <%= @product.brand %></p>
-
+        <div class="card-body">
+        <p class="card-text text-primary font-weight-bold">Brand: <%= @product.brand %></p>
+        </div>
       </div>
 
       <div class="card ">
         <div class="card-body">
-          <p class="card-text">Model<%= @product.model %></p>
+          <p class="card-text text-primary font-weight-bold">Model: <%= @product.model %></p>
         </div>
       </div>
     </div>
 
-    <div class="=row">
+    <div class="=row justify-content-center">
     <div class="card">
       <div class="card-body">
-        <p class="card-text">Stock<%= @product.available_quantity %></p>
+        <p class="card-text text-primary font-weight-bold">Stock: <%= @product.available_quantity %></p>
         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
       </div>
     </div>
 
     <div class="card">
       <div class="card-body">
-        <p class="card-text"><%= @product.average_rating%></p>
+        <p class="card-text text-primary font-weight-bold">Classement: <%= @product.average_rating%></p>
         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
       </div>
     </div>
   </div>
 </div>
 
-  <div class="col-3 card">
-    <div class="card-body">
-      <p class="card-text"><%= @product.unit_price_cents %></p>
-      <p class="card-text"><%= @product.user_id%></p>
+  <div class="col-3 card border border-primary shadow-sm" id="cardi">
+    <div class="card-body justify-content-center">
+      <p classe="text-primary font-weight-bold"><i class="fas fa-euro-sign text-primary font-weight-bold"></i><span class="text-primary font-weight-bold" id="product-price"> <%= @product.unit_price_cents %></span> / entité</p>
+      <p class="card-text text-primary font-weight-bold">Vendu par (User ID): <%= @product.user_id%></p>
+      <p class="btn btn-outline-primary"><b><%= @product.unit_price_cents %> €</b></p>
+      <%= link_to "Avoir un Devis", new_product_order_path(@product), class: "btn btn-primary" %>
+
+      <p class="text btn btn-outline-primary">Contacter Fourniseur</p>
+
     </div>
   </div>
 </div>
 
-<h3><%= @product.name%></h3>
+<h3 class=" text-primary font-weight-bold"><%= @product.name%></h3>
 
 <div class="row">
-  <div class="col-10 card">
+  <div class="card border border-primary shadow-sm" id="cardi">
     <div class="card-body">
-      <h3><%= @product.description%></h3>
+      <h4 class="text-primary font-weight-bold">Déscription</h4>
       <p class="card-text"><%= @product.description %></p>
     </div>
   </div>
 
   </div>
 
-  <h2>Recommendations</h2>
+  <h3 class="text-primary font-weight-bold">Recommendations</h3>
 
-  <div class="row">
+
+<div class="row">
+  <div class="card border border-primary shadow-sm" id="cardi">
+    <div class="card-body">
+
+
 
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -92,6 +100,11 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+</div>
+ </div>
+  </div>
+
+  </div>
 
 
   </div>
