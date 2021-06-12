@@ -1,30 +1,43 @@
+
 <div class="container-fluid">
-  <div class="row">
-<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-  <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">My Account</a>
-  <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-myorders" role="tab" aria-controls="v-pills-profile" aria-selected="false">My Orders</a>
-  <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-myrequests" role="tab" aria-controls="v-pills-messages" aria-selected="false">My Requests</a>
-  <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-accountsetting" role="tab" aria-controls="v-pills-settings" aria-selected="false">Account Settings</a>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="account-tab" data-toggle="tab" href="#account" role="tab" aria-controls="account" aria-selected="true">account</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="myrequests-tab" data-toggle="tab" href="#myrequests" role="tab" aria-controls="myrequests" aria-selected="false">myrequests</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="myorders-tab" data-toggle="tab" href="#myorders" role="tab" aria-controls="myorders" aria-selected="false">myorders</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">settings</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab"></div>
+    <div class="tab-pane fade" id="myrequests" role="tabpanel" aria-labelledby="myrequests-tab">
+      <% @requests.each do |request| %>
+        <div class="row">
+          <div class="col-md-6">
+            <%= render 'dashboard_request', request: request, text: "validate" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="tab-pane fade" id="myorders" role="tabpanel" aria-labelledby="myorders-tab">
+      <% @orders.each do |order| %>
+        <div class="row">
+          <div class="col-md-6">
+            <%= render 'dashboard_order', order: order, text: "validate" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="settings-tab">...</div>
+  </div>
 </div>
-<div class="main-container">
-  <div class="cards" id="custom-cards">
-     <% @orders.each do |order| %>
-       <% if order.status = true %>
-          <div class="row">
-            <div class="col-md-6">
-              <%= render 'dashboard_order', order: order, text: "validate" %>
-             </div>
-            </div>
-            <% else %>
-          <div class="row">
-            <div class="col-md-6">
-              <%= render 'dashboard_request', order: @order, text: "validate" %>
-             </div>
-            </div>
-        <% end %>
-         <% end %>
-  </div>
-  </div>
+
 
 
 
