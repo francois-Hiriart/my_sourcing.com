@@ -1,11 +1,7 @@
 class OrderPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.buyer?
-        scope.where(user_id: user.id)
-      else
-        scope.where(products: {user_id: user.id})
-      end
+        scope.all
     end
   end
 

@@ -1,21 +1,34 @@
+<div class="container-fluid">
+  <div class="row">
+<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+  <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">My Account</a>
+  <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-myorders" role="tab" aria-controls="v-pills-profile" aria-selected="false">My Orders</a>
+  <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-myrequests" role="tab" aria-controls="v-pills-messages" aria-selected="false">My Requests</a>
+  <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-accountsetting" role="tab" aria-controls="v-pills-settings" aria-selected="false">Account Settings</a>
+</div>
 <div class="main-container">
-<div class="cards" id="custom-cards">
-    <% @orders.each do |order| %>
-      <div class="card" style="width: 18rem;" id="cardgrid">
-
-        <div class="card-body">
-          <h4 class="card-title" style="color: #FF6713"><%= order.user_id %></h4>
-          <p class="card-text"><%= order.created_at%></p>
+  <div class="cards" id="custom-cards">
+     <% @orders.each do |order| %>
+       <% if order.status = true %>
           <div class="row">
             <div class="col-md-6">
-              <a href="<%= order_path(order) %>" class="btn btn-primary">More Info</a>
+              <%= render 'dashboard_order', order: order, text: "validate" %>
+             </div>
             </div>
+            <% else %>
+          <div class="row">
             <div class="col-md-6">
-              <h2 class="card-text btn btn-outline-primary"><b><%= order.price_cents %>Total XX €</b></h2>
+              <%= render 'dashboard_request', order: @order, text: "validate" %>
+             </div>
             </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
+        <% end %>
+         <% end %>
   </div>
-</div>
+  </div>
+
+
+
+
+
+
+

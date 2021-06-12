@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :destroy]
-  before_action :set_product, only: [:show, :destroy]
+  before_action :set_order, only: [:show, :destroy, :edit, :update]
+
 
   def index
     @orders = current_user.orders
@@ -29,15 +29,22 @@ class OrdersController < ApplicationController
     redirect_to orders_path
   end
 
-  def validate
-    @order = Order.find(params[:id])
-    @order.validate
-    redirect_to order_path(@order)
+  def edit
   end
 
-  def propose_price
-    @order.propose_price(order_params)
-    redirect_to order_path(@order)
+  def update
+    if current_user.role == "buyer"
+      @order.status = true
+    else
+      @order.price_cents = params[:price_cents]
+      @order.shipping_date = params[:shipping_date]
+      @order.delivery_date = params[:delivery_date]
+    end
+    if @order.save
+      redirect_to order_path(@order)
+    else
+      render :edit
+    end
   end
 
   private

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-
+   before_action :set_product, only: [:show]
   def index
     sql_query = "name ILIKE :query OR description ILIKE :query"
     @products = Product.all
@@ -12,8 +12,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @order = Order.new
-    @orders = @product.orders
+
   end
 
   private
@@ -23,7 +22,7 @@ class ProductsController < ApplicationController
   end
 
   def set_product
-    @product = Prodcut.find(params[:id])
-    authorize @Product
+    @product = Product.find(params[:id])
+    # authorize @Product
   end
 end

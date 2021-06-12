@@ -179,6 +179,7 @@ masque_picture_list.each do |photo|
   delivery_date: Faker::Date.between(from: '2021-06-23', to: '2021-06-30'),
   price_cents: Faker::Number.number(digits: 2),
   product_id: masque.id,
+  status: false,
   user: user1)
   order.save!
   i += 1
