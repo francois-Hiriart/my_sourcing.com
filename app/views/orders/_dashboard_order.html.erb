@@ -8,8 +8,17 @@
         <p class="card-text"><%= order.shipping_date%></p>
         <p class="card-text"><%= order.delivery_date%></p>
         <p class="card-text"><%= order.price_cents%></p>
-        <p class="card-text"><%= order.status%></p>
+        <p class="card-text">Expédié: <%= order.shipped_status%></p>
+        <p class="card-text">Livré: <%= order.delivered_status%></p>
+        <p class="card-text">Devis validé: <%= order.status%></p>
+         <div class="flat-card-actions">
+          <%= link_to 'form_edit', edit_order_path(order) %>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+

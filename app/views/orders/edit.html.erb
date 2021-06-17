@@ -1,5 +1,5 @@
 
-     <% if current_user.role == "supplier"%>
+     <% if current_user.role == "supplier" && @order.status == false %>
        <%= simple_form_for [@order] do |f| %>
        <div class="row">
           <div class="col-6">
@@ -11,10 +11,27 @@
           <div class="col-6">
             <%= f.input :price_cents, label:'Total price'%>
           </div>
-          <%= f.button :submit, "Propose order terms", class: 'btn btn-primary' %>
-         <% end %>
-        </div>
-      <% end %>
+          <div class="col-6">
+            <%= f.button :submit, "Proposition de devis", class: 'btn btn-primary' %>
+          </div>
+       </div>
+       <% end %>
+    <% end %>
+
+    <% if current_user.role == "supplier" && @order.status == true  %>
+       <%= simple_form_for [@order] do |f| %>
+          <div class="custom-control custom-switch">
+           <%= f.input :shipped_status, class: "custom-control-input"  %>
+          </div>
+          <div class="custom-control custom-switch">
+            <%= f.input :delivered_status, class: "custom-control-input"  %>
+          </div>
+          <div class="col-6">
+            <%= f.button :submit, "Conditions de livraison", class: 'btn btn-primary' %>
+          </div>
+       <% end %>
+    <% end %>
+
 
     <% if current_user.role == "buyer" %>
      <%= simple_form_for [@order] do |f| %>

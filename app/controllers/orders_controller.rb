@@ -62,7 +62,7 @@ class OrdersController < ApplicationController
   end
 
   def update_supplier_params
-    params.require(:order).permit(:shipping_date, :delivery_date, :price_cents)
+    params.require(:order).permit(:shipping_date, :delivery_date, :price_cents, :shipped_status, :delivered_status)
   end
 
   def set_order
