@@ -1,29 +1,57 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1587293852726-70cdb56c2866?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1652&q=80);">
   <h1 class="card-title p-2 text-center" style="color: white"><b>Recherchez et trouvez des vendeurs vérifiés rapidement</h2></b><br>
-  <div class="container w-50 justify-content-center">
-    <div class="card">
-      <div class="card-body">
+  <div class="container mt-4">
+      <div class="row d-flex justify-content-center">
+          <div class="col-md-9">
+              <div class="card mt-3">
+                  <div class="d-flex justify-content-center px-5">
+                    <div class="row mt-4 g-1 px-4 pt-5">
+                      <div class="col-md-10">
+                        <%= simple_form_for :product, url: products_path, method: "GET" do |f| %>
 
-        <%= simple_form_for :product, url: products_path, method: "GET" do |f| %>
-            <div class="row justify-content-center">
-              <div class="col-md-9">
-                <%= f.input :query, label: false,
-                                        input_html: { placeholder: "Tapez votre recherche ?" } %>
+                        <%= f.input :query, label: false, input_html: { placeholder: "Effectuez une recherche" } %>
+                      </div>
+                      <div class="col-md-2">
+                        <%= f.submit "rechercher", class: "btn btn-primary" %>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-4 g-1  mb-5">
+                      <div class="col-md-2">
+                          <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="https://i.imgur.com/Mb8kaPV.png" width="50">
+                              <div class="text-center mg-text"> <span class="mg-text">Gestion</span> </div>
+                          </div>
+                      </div>
+                      <div class="col-md-2">
+                          <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="https://i.imgur.com/ueLEPGq.png" width="50">
+                              <div class="text-center mg-text"> <span class="mg-text">Paiments</span> </div>
+                          </div>
+                      </div>
+                      <div class="col-md-2">
+                          <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="https://i.imgur.com/tmqv0Eq.png" width="50">
+                              <div class="text-center mg-text"> <span class="mg-text">Livraison</span> </div>
+                          </div>
+                      </div>
+                      <div class="col-md-2">
+                          <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="https://i.imgur.com/D0Sm15i.png" width="50">
+                              <div class="text-center mg-text"> <span class="mg-text">Qualité</span> </div>
+                          </div>
+                      </div>
+                      <div class="col-md-2">
+                          <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="https://i.imgur.com/Z7BJ8Po.png" width="50">
+                              <div class="text-center mg-text"> <span class="mg-text">Retour</span> </div>
+                          </div>
+                      </div>
+                      <div class="col-md-2">
+                          <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="https://i.imgur.com/YLsQrn3.png" width="50">
+                              <div class="text-center mg-text"> <span class="mg-text">Garantie</span> </div>
+                          </div>
+                      </div>
+                  </div>
               </div>
-              <div class="col-md-3">
-                <%= f.submit "rechercher", class: "btn btn-primary" %>
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="form-check form-check-inline">
-                <%= f.input :query_category, label: false, as: :check_boxes, collection: Product.categories %>
-              </div>
-            </div>
-        <% end %>
-
+          </div>
       </div>
-
-    </div>
   </div>
 </div>
 
