@@ -3,10 +3,10 @@
        <%= simple_form_for [@order] do |f| %>
        <div class="row">
           <div class="col-6">
-            <%= f.input :shipping_date, label:'Shipping Date' %>
+            <%= f.input :shipping_date, as: :date, label:"Date d'expédition" %>
           </div>
           <div class="col-6">
-            <%= f.input :delivery_date, label:'Delivery Date'%>
+            <%= f.input :delivery_date, as: :date, label:"Date de livraison"%>
           </div>
           <div class="col-6">
             <%= f.input :price_cents, label:'Total price'%>

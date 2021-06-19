@@ -37,6 +37,7 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    # I18n.locale = :en
   end
 
   def update
