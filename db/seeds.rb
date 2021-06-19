@@ -172,7 +172,7 @@ masque_picture_list.each do |photo|
   average_rating: 1,
   category: "masque",
   user: user2)
-  # masque.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
+  masque.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
   masque.save!
   order = Order.new(product_quantity: Faker::Number.between(from: 1, to: 100000),
   shipping_date: Faker::Date.between(from: '2021-06-01', to: '2021-06-08'),
@@ -199,7 +199,7 @@ catheter_picture_list.each do |photo|
   average_rating: 1,
   category: "catheter",
   user: user2)
-  # catheter.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
+  catheter.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
   catheter.save!
   order = Order.new(product_quantity: Faker::Number.between(from: 1, to: 100000),
   shipping_date: Faker::Date.between(from: '2021-06-01', to: '2021-06-08'),
@@ -227,7 +227,7 @@ scalpel_picture_list.each do |photo|
   average_rating: 1,
   category: "scalpel",
   user: user2)
-  # scalpel.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
+  scalpel.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
   scalpel.save!
   order = Order.new(product_quantity: Faker::Number.between(from: 1, to: 100000),
   shipping_date: Faker::Date.between(from: '2021-06-01', to: '2021-06-08'),
@@ -254,7 +254,7 @@ seringue_picture_list.each do |photo|
   average_rating: 1,
   category: "seringue",
   user: user2)
-  # seringue.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
+  seringue.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
   seringue.save!
   order = Order.new(product_quantity: Faker::Number.between(from: 1, to: 100000),
   shipping_date: Faker::Date.between(from: '2021-06-01', to: '2021-06-08'),
@@ -281,7 +281,7 @@ bande_picture_list.each do |photo|
   average_rating: 1,
   category: "bande",
   user: user2)
-  # bande.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
+  bande.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
   bande.save!
   order = Order.new(product_quantity: Faker::Number.between(from: 1, to: 100000),
   shipping_date: Faker::Date.between(from: '2021-06-01', to: '2021-06-08'),
@@ -291,5 +291,3 @@ bande_picture_list.each do |photo|
   order.save!
   i += 1
 end
-
-

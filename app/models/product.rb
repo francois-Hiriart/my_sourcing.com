@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   has_many :orders, dependent: :destroy
   belongs_to :user
+  has_one_attached :picture
 
   # scope :filter_by_price, ->(prices) { where(unit_price_cents: prices[1]) }
 
