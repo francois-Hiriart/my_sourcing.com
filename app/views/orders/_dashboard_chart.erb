@@ -1,0 +1,13 @@
+
+<div class="main-container">
+  <%#= bar_chart @orders.group(:category).sum(:product_quantity) %>
+</div>
+
+<div class="main-container">
+      <%= column_chart @orders.group(:delivery_date).sum(:product_quantity) %>
+      <%= column_chart @quantity_ordered_category %>
+</div>
+<div class="main-container">
+  <%= column_chart @requests.group(:delivery_date).sum(:product_quantity) %>
+</div>
+

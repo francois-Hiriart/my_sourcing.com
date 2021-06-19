@@ -8,4 +8,8 @@ class Order < ApplicationRecord
   # def self.from_user(user)
   #   Order.includes(:seringues).where(seringues: { user_id: user.id })
   # end
+
+  # def self.by_category(category)
+  #   joins(:product).where(products: { category: category})
+  # end
 end

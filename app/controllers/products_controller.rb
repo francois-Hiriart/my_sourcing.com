@@ -8,15 +8,15 @@ class ProductsController < ApplicationController
     search_params_query = params.dig(:product, :query)
     if search_params_query_category.present? && search_params_query_category[1]
       @products = @products.where(category: params.dig(:product, :query_category)[1])
-      Rails.cache.fetch("first_step_search/key_#{current_user.id}", expires_in: 2.minutes) do
-        @products
-      end
+      # Rails.cache.fetch("first_step_search/key_#{current_user.id}", expires_in: 2.minutes) do
+      #   @products
+      # end
     end
     if search_params_query.present?
       @products = @products.where(sql_query, query: "%#{params.dig(:product, :query)}%")
-      Rails.cache.fetch("first_step_search/key_#{current_user.id}", expires_in: 2.minutes) do
-        @products
-      end
+      # Rails.cache.fetch("first_step_search/key_#{current_user.id}", expires_in: 2.minutes) do
+      #   @products
+      # end
     end
     if params.dig(:product, :query_filter_brand).present?
       # first_step_search = Rails.cache.read("first_step_search/key_#{current_user.id}")
