@@ -11,6 +11,8 @@ class OrdersController < ApplicationController
 
     @requests = user_orders.where(status: false)
     @orders = user_orders.where(status: true)
+
+    @quantity_ordered_category = Order.includes(:product).group_by {|order| order.product.category}.transform_values {|value| value.map(&:product_quantity).sum }
   end
 
   def create
@@ -37,6 +39,7 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    # I18n.locale = :en
   end
 
   def update
