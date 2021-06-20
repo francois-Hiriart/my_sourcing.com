@@ -41,21 +41,13 @@
 
           <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
             <% @requests.each do |request| %>
-              <div class="row">
-                <div class="col-md-6">
-                  <%= render 'dashboard_request', request: request, text: "validate" %>
-                </div>
-              </div>
+              <%= render 'dashboard_request', request: request, text: "validate" %>
             <% end %>
           </div>
 
           <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
             <% @orders.each do |order| %>
-              <div class="row">
-                <div class="col-md-6">
-                  <%= render 'dashboard_order', order: order, text: "validate" %>
-                </div>
-              </div>
+              <%= render 'dashboard_order', order: order, text: "validate" %>
             <% end %>
           </div>
           <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">zzzzz</div>

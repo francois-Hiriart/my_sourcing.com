@@ -1,28 +1,17 @@
-<div class="main-container">
-  <div class="cards" id="custom-cards">
-    <div class="card" style="width: 18rem;" id="cardgrid">
-      <div class="card-body">
-        <h4 class="card-title" style="color: #FF6713"><%= request.product_quantity %></h4>
-        <p class="card-text"><%= request.product.name%></p>
-        <p class="card-text"><%= request.created_at%></p>
-        <p class="card-text"><%= request.shipping_date%></p>
-        <p class="card-text"><%= request.delivery_date%></p>
-        <p class="card-text"><%= request.price_cents%></p>
-        <p class="card-text">Expédié: <%= request.shipped_status%></p>
-        <p class="card-text">Livré: <%= request.delivered_status%></p>
-        <p class="card-text">Devis validé: <%= request.status%></p>
-        <div class="flat-card-actions">
-          <%= link_to 'form_edit', edit_order_path(request) %>
+<div class="container">
+  <div class="card mb-3" style="width: 1100px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="francois.jpg" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5>Commande n° <span class="text-primary font-weight-bold">#<%= request.product.id %></span></h5>
+          <p class="card-text"><%= request.product.name%></p>
+          <%= link_to 'Détails du produit', product_path(request.product), class:"btn btn-outline-primary"%>
+          <%= link_to 'Valider', edit_order_path(request), class: "btn btn-primary" %>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
