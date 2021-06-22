@@ -30,13 +30,47 @@
         </ul>
       </div>
     </nav>
+  </div>
 
+  <div>
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <div class="tab-content" id="v-pills-tabContent">
 
           <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+            <div class="row">
+              <div class="col-4">
+                <div class="card">
+                  <div class="card-body">
+                    <p class="card-text">
+                      Nombre de commande:
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="card">
+                  <div class="card-body">
+                    <p class="card-text">Nombre d'Devis: </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="card">
+                  <div class="card-body">
+                    <p class="card-text">Nombre de Produits: <</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              XXX
+            </div>
+
+
+          <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
             <%= render 'dashboard_chart', request: request, text: "validate" %>
+
           </div>
 
           <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
@@ -50,15 +84,56 @@
               <%= render 'dashboard_order', order: order, text: "validate" %>
             <% end %>
           </div>
-          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">zzzzz</div>
-        </div>
 
-      </div>
-    </main>
+          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+            <div class="card center">
+              <div class="card-body ">
+                <%= simple_form_for current_user do |f| %>
+                  <div class="row justify-content-center">
+                    <div class="col-6">
+                      <%= f.input :user_name %>
+
+                    </div>
+
+                    <div class="col-6">
+                      <%= f.input :email %>
+                    </div>
+
+                    <div class="">
+                    </div>
+                  </div>
+
+                  <div class="row justify-content-center">
+                    <div class="col-12">
+                      <%= f.input :company_name %>
+                    </div>
+                  </div>
+
+                  <div class="row justify-content-center">
+                    <div class="col-12">
+                      <%= f.input :address %>
+                    </div>
+                  </div>
+
+                  <div class="row justify-content-center">
+                    <div class="col-6">
+                      <%= f.input :business_activity %>
+                    </div>
+                    <div class="col-6">
+                      <%= f.input :phone_number %>
+                    </div>
+                  </div>
+
+                  <div class="row justify-content-center">
+                    <%= f.submit 'Modifier', class: "btn btn-primary" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
   </div>
 </div>
-
-
-
-
 
