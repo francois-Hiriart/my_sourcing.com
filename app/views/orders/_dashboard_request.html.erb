@@ -7,6 +7,9 @@
       <div class="col-md-8">
         <div class="card-body">
           <h5>Commande n° <span class="text-primary font-weight-bold">#<%= request.product.id %></span></h5>
+          <% if request.product.picture.attached? %>
+              <%= cl_image_tag request.product&.picture.key, alt: "alttext", class: "card-img-top img-fluid" %>
+            <% end %>
           <p class="card-text"><%= request.product.name%></p>
           <p class="card-text">Quantité : <%= request.product_quantity%> unités</p>
           <p class="card-text">Prix : <%= request.price_cents%> €</p>

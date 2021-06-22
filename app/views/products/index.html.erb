@@ -47,7 +47,10 @@
       <% @products.each do |product| %>
         <div class="col">
           <div class="card border border-primary shadow-sm" id="cardi">
-            <%= image_tag "https://5.imimg.com/data5/SELLER/Default/2020/10/GK/JQ/IQ/44285273/whatsapp-image-2020-10-08-at-1-26-52-pm-500x500.jpeg", alt: "", class: "card-img-top p-2"%>
+            <%#= image_tag "https://5.imimg.com/data5/SELLER/Default/2020/10/GK/JQ/IQ/44285273/whatsapp-image-2020-10-08-at-1-26-52-pm-500x500.jpeg", alt: "", class: "card-img-top p-2"%>
+            <% if product.picture.attached? %>
+              <%= cl_image_tag product&.picture.key, alt: "alttext", class: "card-img-top img-fluid" %>
+            <% end %>
             <div class="card-body">
               <h5 class="card-title text-primary font-weight-bold"><%= product.name %></h5>
               <p class="card-content">Marque : <%= product.brand %></p>
