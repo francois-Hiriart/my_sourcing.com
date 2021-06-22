@@ -13,6 +13,26 @@
                   value: params.dig(:product, :query)
                 }
               %>
+               <%= f.input :query_filter_brand, label: "brand",
+                include_hidden: false,
+                collection: Product::BRANDS,
+                checked: params.dig(:product, :query_filter_brand),
+                as: :check_boxes
+              %>
+              <%= f.input :price, label: "unit_price_cents",
+                include_hidden: false,
+                collection: Product::UNIT_PRICE_CENTS,
+                value_method: :first,
+                checked: params.dig(:product, :price),
+                as: :check_boxes
+              %>
+              <%= f.input :quantity, label: "available_quantity",
+                include_hidden: false,
+                collection: Product::AVAILABLE_QUANTITIES,
+                value_method: :first,
+                checked: params.dig(:product, :quantity),
+                as: :check_boxes
+              %>
             </div>
             <div class="col-md-1">
               <%= button_tag(type: "submit", class: "btn btn-primary") do %>
@@ -57,25 +77,7 @@
     <div class="col-md-10">
       <%= simple_form_for :product, url: products_path, method: "GET" do |f| %>
         <%= f.input :query, label: false %>
-        <%= f.input :query_filter_brand, label: "brand",
-          collection: Product::BRANDS,
-          value_method: :first,
-          as: :check_boxes
-        %>
-        <%= f.input :price, label: "unit_price_cents",
-          include_hidden: false,
-          collection: Product::UNIT_PRICE_CENTS,
-          value_method: :first,
-          checked: params.dig(:product, :price),
-          as: :check_boxes
-        %>
-        <%= f.input :quantity, label: "available_quantities",
-          include_hidden: false,
-          collection: Product::AVAILABLE_QUANTITIES,
-          value_method: :first,
-          checked: params.dig(:product, :quantity),
-          as: :check_boxes
-        %>
+
     </div>
     <div class="col-md-2">
       <%= f.submit "rechercher", class: "btn btn-primary" %>

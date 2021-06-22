@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
     end
     if params.dig(:product, :query_filter_brand).present?
       # first_step_search = Rails.cache.read("first_step_search/key_#{current_user.id}")
-      @products_filtered = @products.where(brand: params.dig(:product, :query_filter_brand)[1])
+      @products = @products.where(brand: params.dig(:product, :query_filter_brand))
       # Rails.cache.delete("first_step_search/key_#{current_user.id}")
     end
     if params.dig(:product, :price).present?
