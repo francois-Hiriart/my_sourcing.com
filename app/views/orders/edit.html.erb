@@ -1,12 +1,17 @@
-
-     <% if current_user.role == "supplier" && @order.status == false %>
+<div class="container pt-4 col d-flex justify-content-center">
+  <div class="card p-3 justify-content-center" style="width: 25rem;">
+  <h5 class="card-header text-primary">Confirmez le status de la commande</h5>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text">
+      <% if current_user.role == "supplier" && @order.status == false %>
        <%= simple_form_for [@order] do |f| %>
        <div class="row">
           <div class="col-6">
-            <%= f.input :shipping_date, label:'Shipping Date' %>
+            <%= f.input :shipping_date, as: :date, label:"Date d'expédition" %>
           </div>
           <div class="col-6">
-            <%= f.input :delivery_date, label:'Delivery Date'%>
+            <%= f.input :delivery_date, as: :date, label:"Date de livraison"%>
           </div>
           <div class="col-6">
             <%= f.input :price_cents, label:'Total price'%>
@@ -20,14 +25,18 @@
 
     <% if current_user.role == "supplier" && @order.status == true  %>
        <%= simple_form_for [@order] do |f| %>
-          <div class="custom-control custom-switch">
-           <%= f.input :shipped_status, class: "custom-control-input"  %>
+          <div class="row d-flex icon-content"> <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
+            <div class="d-flex flex-column">
+              <%= f.input :shipped_status, label: 'Envoyée', class: "custom-control-input" %>
+            </div>
           </div>
-          <div class="custom-control custom-switch">
-            <%= f.input :delivered_status, class: "custom-control-input"  %>
+          <div class="row d-flex icon-content"> <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+            <div class="d-flex flex-column">
+              <%= f.input :delivered_status, label: 'Livrée', class: "custom-control-input"  %>
+            </div>
           </div>
-          <div class="col-6">
-            <%= f.button :submit, "Conditions de livraison", class: 'btn btn-primary' %>
+          <div class="row d-flex justify-content-center">
+            <%= f.button :submit, "Confirmer", class: 'btn btn-primary' %>
           </div>
        <% end %>
     <% end %>
@@ -35,12 +44,18 @@
 
     <% if current_user.role == "buyer" %>
      <%= simple_form_for [@order] do |f| %>
-       <div class="custom-control custom-switch">
-         <%= f.input :status, class: "custom-control-input"  %>
-       </div>
+      <div class="row d-flex icon-content"> <img class="icon" src="https://i.imgur.com/9nnc9Et.png">
+        <div class="d-flex flex-column">
+          <%= f.input :status, label: 'Valdier', class: "custom-control-input"  %>
+        </div>
+      </div>
        <div class="actions">
-         <%= f.button :submit, "valider", class: 'btn btn-primary' %>
+         <%= f.button :submit, "Confirmer", class: 'btn btn-primary' %>
        </div>
        <% end %>
     <% end %>
+    </p>
+  </div>
+</div>
+
 

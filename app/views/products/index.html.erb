@@ -4,8 +4,33 @@
         <%= simple_form_for :product, url: products_path, method: "GET" do |f| %>
           <div class="row justify-content-center">
             <div class="col-md-9">
-              <%= f.input :query, label: false,
-                                      input_html: { placeholder: "Nouvelle recherche ?" } %>
+              <%= f.input :query,
+                label: false,
+                input_html: {
+                  placeholder: "Nouvelle recherche ?",
+                  value: params.dig(:product, :query)
+                }
+              %>
+               <%= f.input :query_filter_brand, label: "brand",
+                include_hidden: false,
+                collection: Product::BRANDS,
+                checked: params.dig(:product, :query_filter_brand),
+                as: :check_boxes
+              %>
+              <%= f.input :price, label: "unit_price_cents",
+                include_hidden: false,
+                collection: Product::UNIT_PRICE_CENTS,
+                value_method: :first,
+                checked: params.dig(:product, :price),
+                as: :check_boxes
+              %>
+              <%= f.input :quantity, label: "available_quantity",
+                include_hidden: false,
+                collection: Product::AVAILABLE_QUANTITIES,
+                value_method: :first,
+                checked: params.dig(:product, :quantity),
+                as: :check_boxes
+              %>
             </div>
             <div class="col-md-1">
               <%= button_tag(type: "submit", class: "btn btn-primary") do %>
@@ -41,6 +66,11 @@
     <% end %>
   </div>
 </div>
+
+<%#= @products_filtered.inspect  %>
+
+
+
 
 
 

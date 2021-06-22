@@ -63,8 +63,7 @@ catheter_brand_name = ["NMmedical",
 "UROMED"]
 
 
-catheter_picture_list = ["https://www.pharma-gdd.com/images/catalog/pictures/thumbnails/600/catheters-bd-insyte-381212-1.webp",
-"https://4.imimg.com/data4/TK/DS/MY-7159894/semtrac-set-4-2-catheter-500x500.jpg",
+catheter_picture_list = ["https://4.imimg.com/data4/TK/DS/MY-7159894/semtrac-set-4-2-catheter-500x500.jpg",
 "https://5.imimg.com/data5/SELLER/Default/2020/9/ZU/WK/YB/10141310/cath-embryo-transfer-catheter-500x500.jpg",
 "https://5.imimg.com/data5/VQ/IV/MF/SELLER-84272073/paclitaxel-eluting-pta-balloon-catheter-500x500.jpg",
 "https://5.imimg.com/data5/XC/QD/MY-434358/naso-biliary-catheter-nbdc-500x500.png"]

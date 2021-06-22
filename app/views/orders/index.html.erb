@@ -36,6 +36,7 @@
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <div class="tab-content" id="v-pills-tabContent">
+
           <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
             <div class="row">
               <div class="col-4">
@@ -50,7 +51,7 @@
               <div class="col-4">
                 <div class="card">
                   <div class="card-body">
-                    <p class="card-text">Nombre d'Devis: <</p>
+                    <p class="card-text">Nombre d'Devis: </p>
                   </div>
                 </div>
               </div>
@@ -65,25 +66,22 @@
             <div class="row">
               XXX
             </div>
+
+
+          <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+            <%= render 'dashboard_chart', request: request, text: "validate" %>
+
           </div>
 
           <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
             <% @requests.each do |request| %>
-              <div class="row">
-                <div class="col-md-6">
-                  <%= render 'dashboard_request', request: request, text: "validate" %>
-                </div>
-              </div>
+              <%= render 'dashboard_request', request: request, text: "validate" %>
             <% end %>
           </div>
 
           <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
             <% @orders.each do |order| %>
-              <div class="row">
-                <div class="col-md-6">
-                  <%= render 'dashboard_order', order: order, text: "validate" %>
-                </div>
-              </div>
+              <%= render 'dashboard_order', order: order, text: "validate" %>
             <% end %>
           </div>
 

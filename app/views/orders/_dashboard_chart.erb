@@ -1,0 +1,27 @@
+
+<div class="main-container">
+  <%#= bar_chart @orders.group(:category).sum(:product_quantity) %>
+</div>
+
+<% if current_user.role == "supplier" %>
+<div class="main-container">
+  <h2>Commandes reçues par type de produit</h2>
+      <%= column_chart @quantity_ordered_category %>
+</div>
+<div class="main-container">
+  <h2>Quantités à livrer par date</h2>
+  <%= column_chart @requests.group(:delivery_date).sum(:product_quantity) %>
+</div>
+<% end  %>
+
+<% if current_user.role == "buyer" %>
+<div class="main-container">
+  <h2>Quantités commandées par type de produit</h2>
+      <%= column_chart @quantity_ordered_category %>
+</div>
+<div class="main-container">
+  <h2>Quantités à recevoir par date</h2>
+  <%= column_chart @requests.group(:delivery_date).sum(:product_quantity) %>
+</div>
+<% end  %>
+
