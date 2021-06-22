@@ -11,6 +11,11 @@ class OrdersController < ApplicationController
 
     @requests = user_orders.where(status: false)
     @orders = user_orders.where(status: true)
+
+
+    #@sum_requests = user_orders.where(user_id: @order.user_id)
+    #@recommanded_products = Product.where(category: @product.category).limit(4)
+
   end
 
   def create
