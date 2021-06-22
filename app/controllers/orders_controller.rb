@@ -13,6 +13,12 @@ class OrdersController < ApplicationController
     @orders = user_orders.where(status: true)
     @quantity_ordered_category = Order.includes(:product).group_by {|order| order.product.category}.transform_values {|value| value.map(&:product_quantity).sum }
 
+    # @shipped_orders = []
+    # @orders.each do |order|
+    #   if order.shipped_status == true
+    #     order.push(@shipped_orders)
+    #   end
+    # end
   end
 
   def create
