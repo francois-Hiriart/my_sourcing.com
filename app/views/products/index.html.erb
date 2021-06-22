@@ -72,19 +72,6 @@
 <%#= @products_filtered.inspect  %>
 
 
-<div class="d-flex justify-content-center px-5">
-  <div class="row mt-4 g-1 px-4 pt-5">
-    <div class="col-md-10">
-      <%= simple_form_for :product, url: products_path, method: "GET" do |f| %>
-        <%= f.input :query, label: false %>
-
-    </div>
-    <div class="col-md-2">
-      <%= f.submit "rechercher", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
-</div>
 
 
 
