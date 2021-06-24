@@ -7,7 +7,7 @@
       <div class="row justify-content-center">
         <div class="col-7">
         <% if current_user.role = "buyer" %>
-        <%= simple_form_for [@product, @order], url: product_orders_path, method: :post do |f| %>
+        <%= simple_form_for [@product, @order], remote: true, url: product_orders_path, method: :post do |f| %>
         <%= f.input :product_quantity, label:'Quantité' %>
         <%= f.button :submit, "Demander", class: 'btn btn-primary' %>
         <% end %>

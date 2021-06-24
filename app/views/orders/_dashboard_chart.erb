@@ -8,9 +8,17 @@
   <h2>Commandes reçues par type de produit</h2>
       <%= column_chart @quantity_ordered_category %>
 </div>
+
+<% if @quantity_requested_category.present?  %>
+  <h2>Devis reçus par type de produit</h2>
+  <div class="main-container">
+    <% pie_chart @quantity_requested_category %>
+  </div>
+<% end %>
+
 <div class="main-container">
   <h2>Quantités à livrer par date</h2>
-  <%= column_chart @requests.group(:delivery_date).sum(:product_quantity) %>
+  <%= line_chart @requests.group(:delivery_date).sum(:product_quantity) %>
 </div>
 <% end  %>
 
@@ -19,9 +27,18 @@
   <h2>Quantités commandées par type de produit</h2>
       <%= column_chart @quantity_ordered_category %>
 </div>
+
+<% if @quantity_requested_category.present?  %>
+  <h2>Devis reçus par type de produit</h2>
+  <div class="main-container">
+    <% pie_chart @quantity_requested_category %>
+  </div>
+<% end %>
+
+
 <div class="main-container">
   <h2>Quantités à recevoir par date</h2>
-  <%= column_chart @requests.group(:delivery_date).sum(:product_quantity) %>
+  <%= line_chart @requests.group(:delivery_date).sum(:product_quantity) %>
 </div>
 <% end  %>
 

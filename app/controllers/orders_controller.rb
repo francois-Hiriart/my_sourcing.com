@@ -11,7 +11,8 @@ class OrdersController < ApplicationController
 
     @requests = user_orders.where(status: false)
     @orders = user_orders.where(status: true)
-    @quantity_ordered_category = Order.includes(:product).group_by {|order| order.product.category}.transform_values {|value| value.map(&:product_quantity).sum }
+    @quantity_ordered_category = Order.where(status: true).includes(:product).group_by {|order| order.product.category}.transform_values {|value| value.map(&:product_quantity).sum }
+    @quantity_requested_category = Order.where(status: false).includes(:product).group_by {|order| order.product.category}.transform_values {|value| value.map(&:product_quantity).sum }
 
     # @shipped_orders = []
     # @orders.each do |order|
@@ -25,7 +26,7 @@ class OrdersController < ApplicationController
     @order = Order.new(create_order_params.merge(user: current_user))
     @order.product = Product.find(params[:product_id])
     if @order.save
-      redirect_to orders_path
+      redirect_to orders_path(@order, anchor: "request-#{@request.id}")
     else
       render :new
     end
@@ -54,7 +55,7 @@ class OrdersController < ApplicationController
     form_params = current_user.role == "buyer" ? update_buyer_params : update_supplier_params
 
     if @request.update(form_params)
-      redirect_to orders_path
+      redirect_to orders_path(@request, anchor: "request-#{@request.id}")
     else
       render :edit
     end
