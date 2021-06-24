@@ -6,21 +6,22 @@
 <div class="row mt-3">
   <div class="col-6">
     <% if current_user.role == "supplier" %>
-    <div class="card mb-3 p-5">
-      <h3 class="text-primary">Commandes reçues par type de produit</h3>
-      <br>
-      <%= column_chart @quantity_ordered_category %>
-    </div>
+      <div class="card mb-3 p-5">
+        <h3 class="text-primary">Commandes reçues par type de produit</h3>
+        <br>
+        <%= column_chart @quantity_ordered_category %>
+      </div>
+    <% end %>
   </div>
   <div class="col-6">
     <% if @quantity_requested_category.present?  %>
-    <div class="card mb-3 p-5">
-      <h3 class="text-primary">Devis reçus par type de produit</h3>
-      <br>
-      <% pie_chart @quantity_requested_category %>
-    </div>
+      <div class="card mb-3 p-5">
+        <h3 class="text-primary">Devis reçus par type de produit</h3>
+        <br>
+        <% pie_chart @quantity_requested_category %>
+      </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
 
 
@@ -29,27 +30,23 @@
   <br>
   <%= line_chart @requests_by_shipping_date %>
 </div>
-<% end  %>
-
 
 
 <% if current_user.role == "buyer" %>
-<div class="main-container">
-  <h2>Quantités commandées par type de produit</h2>
-      <%= column_chart @quantity_ordered_category %>
-</div>
-
-<% if @quantity_requested_category.present?  %>
-  <h2>Devis reçus par type de produit</h2>
   <div class="main-container">
-    <% pie_chart @quantity_requested_category %>
+    <h2>Quantités commandées par type de produit</h2>
+    <%= column_chart @quantity_ordered_category %>
   </div>
-<% end %>
 
-
-<div class="main-container">
-  <h2>Quantités à recevoir par date</h2>
-  <%= line_chart @requests_by_delivery_date %>
-</div>
+  <% if @quantity_requested_category.present?  %>
+    <h2>Devis reçus par type de produit</h2>
+    <div class="main-container">
+      <% pie_chart @quantity_requested_category %>
+    </div>
+  <% end %>
+  <div class="main-container">
+    <h2>Quantités à recevoir par date</h2>
+    <%= line_chart @requests_by_delivery_date %>
+  </div>
 <% end  %>
 
