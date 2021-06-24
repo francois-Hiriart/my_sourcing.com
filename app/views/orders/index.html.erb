@@ -1,3 +1,15 @@
+<div class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Company name</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <h1 class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">Espace Fournisseur</h1>
+  <div class="navbar-nav">
+    <div class="nav-item text-nowrap">
+    </div>
+  </div>
+</div>
+
 <div class="container-fluid">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
@@ -39,24 +51,19 @@
 
           <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
             <div class="row">
-              <div class="col-4">
-                <div class="card">
-                  <div class="card-body">
-                    <p class="card-text">Nombre de commandes: <%= @requests.count %></p>
+              <div class="col-6">
+                <div class="card" style="height: 110px;">
+                  <div class="card-body ">
+                    <h5 class="card-text justify-content-center">Nombre de commandes</h5>
+                    <h5 class="card-text"><%= @requests.count %></h5>
                   </div>
                 </div>
               </div>
-              <div class="col-4">
-                <div class="card">
+              <div class="col-6">
+                <div class="card " style="height: 110px;">
                   <div class="card-body">
-                    <p class="card-text">Nombre de devis: <%= @orders.count %> </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="card">
-                  <div class="card-body">
-                    <p class="card-text">Commandes en cours de livraison : <%#= @shipped_orders.count %></p>
+                    <h5 class="card-text">Nombre de devis: </h5>
+                    <h5 class="card-text"><%= @orders.count %></h5>
                   </div>
                 </div>
               </div>

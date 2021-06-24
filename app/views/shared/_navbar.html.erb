@@ -10,7 +10,7 @@
       <% if user_signed_in? %>
         <li><%= link_to "Mon compte", orders_path, class: "btn btn-outline-primary"%></li>
         <li class="nav-item dropdown">
-          <%= link_to "Connecté", "#", class: "btn btn-success dropdown-toggle text-white", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= link_to "Connecté", "#", class: "btn btn-success dropdown-toggle text-white ml-2", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item text-danger font-weight-bold" %>
           </div>
