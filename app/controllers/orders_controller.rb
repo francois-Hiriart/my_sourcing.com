@@ -10,6 +10,9 @@ class OrdersController < ApplicationController
     end
 
     @requests = user_orders.where(status: false)
+    @requests_by_shipping_date = @requests.group(:delivery_date).sum(:product_quantity)
+    @requests_by_delivery_date = @requests.group(:delivery_date).sum(:product_quantity)
+    @requests = @requests.order(created_at: :desc)
     @orders = user_orders.where(status: true)
     @quantity_ordered_category = Order.where(status: true).includes(:product).group_by {|order| order.product.category}.transform_values {|value| value.map(&:product_quantity).sum }
     @quantity_requested_category = Order.where(status: false).includes(:product).group_by {|order| order.product.category}.transform_values {|value| value.map(&:product_quantity).sum }
@@ -26,7 +29,7 @@ class OrdersController < ApplicationController
     @order = Order.new(create_order_params.merge(user: current_user))
     @order.product = Product.find(params[:product_id])
     if @order.save
-      redirect_to orders_path(@order, anchor: "request-#{@request.id}")
+      redirect_to orders_path(tab: "devis")
     else
       render :new
     end
@@ -55,9 +58,13 @@ class OrdersController < ApplicationController
     form_params = current_user.role == "buyer" ? update_buyer_params : update_supplier_params
 
     if @request.update(form_params)
-      redirect_to orders_path(@request, anchor: "request-#{@request.id}")
+      if @request.status == false
+        redirect_to orders_path(tab: "devis")
+      else
+        redirect_to orders_path(tab: "commandes")
+      end
     else
-      render :edit
+     render :edit
     end
   end
 

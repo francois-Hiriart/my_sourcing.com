@@ -18,7 +18,7 @@
 
 <div class="main-container">
   <h2>Quantités à livrer par date</h2>
-  <%= line_chart @requests.group(:delivery_date).sum(:product_quantity) %>
+  <%= line_chart @requests_by_shipping_date %>
 </div>
 <% end  %>
 
@@ -38,7 +38,7 @@
 
 <div class="main-container">
   <h2>Quantités à recevoir par date</h2>
-  <%= line_chart @requests.group(:delivery_date).sum(:product_quantity) %>
+  <%= line_chart @requests_by_delivery_date %>
 </div>
 <% end  %>
 
