@@ -1,15 +1,14 @@
 <div class="container">
   <div class="card mb-3" style="width: 1100px;">
     <div class="row no-gutters">
-      <div class="col-md-4">
-        <img src="francois.jpg" alt="...">
+      <div class="col-md-3 p-5 justify-content-center">
+        <% if request.product.picture.attached? %>
+          <%= cl_image_tag request.product&.picture.key, alt: "alttext", class: "card-img center img-fluid mx-auto" %>
+        <% end %>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-9">
         <div class="card-body">
           <h5>Commande n° <span class="text-primary font-weight-bold">#<%= request.id %></span></h5>
-          <% if request.product.picture.attached? %>
-              <%= cl_image_tag request.product&.picture.key, alt: "alttext", class: "card-img-top img-fluid" %>
-            <% end %>
           <p class="card-text", id="request-devis"><%= request.product.name%></p>
           <p class="card-text", id="request-<%= request.id %>">Quantité : <%=  number_with_delimiter(request.product_quantity, delimiter: " ")%> unités</p>
           <% if request.price_cents.present? %>
