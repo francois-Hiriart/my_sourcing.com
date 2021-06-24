@@ -10,7 +10,7 @@
           <% if request.product.picture.attached? %>
               <%= cl_image_tag request.product&.picture.key, alt: "alttext", class: "card-img-top img-fluid" %>
             <% end %>
-          <p class="card-text", id="request-<%= request.id %>"><%= request.product.name%></p>
+          <p class="card-text", id="request-devis"><%= request.product.name%></p>
           <p class="card-text", id="request-<%= request.id %>">Quantité : <%=  number_with_delimiter(request.product_quantity, delimiter: " ")%> unités</p>
           <% if request.price_cents.present? %>
            <p class="card-text", id="request-<%= request.id %>">Prix : <%= number_with_delimiter(request.price_cents, delimiter: " ") %> €</p>
