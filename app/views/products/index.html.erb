@@ -1,79 +1,78 @@
-<div class="container py-3">
-  <div class="card center w-75">
-      <div class="card-body ">
-        <%= simple_form_for :product, url: products_path, method: "GET" do |f| %>
-          <div class="row justify-content-center">
-            <div class="col-md-9">
-              <%= f.input :query,
-                label: false,
-                input_html: {
-                  placeholder: "Nouvelle recherche ?",
-                  value: params.dig(:product, :query)
-                }
-              %>
-               <%= f.input :query_filter_brand, label: "brand",
-                include_hidden: false,
-                collection: Product::BRANDS,
-                checked: params.dig(:product, :query_filter_brand),
-                as: :check_boxes
-              %>
-              <%= f.input :price, label: "unit_price_cents",
-                include_hidden: false,
-                collection: Product::UNIT_PRICE_CENTS,
-                value_method: :first,
-                checked: params.dig(:product, :price),
-                as: :check_boxes
-              %>
-              <%= f.input :quantity, label: "available_quantity",
-                include_hidden: false,
-                collection: Product::AVAILABLE_QUANTITIES,
-                value_method: :first,
-                checked: params.dig(:product, :quantity),
-                as: :check_boxes
-              %>
-            </div>
-            <div class="col-md-1">
-              <%= button_tag(type: "submit", class: "btn btn-primary") do %>
-                <span><i class="fas fa-search"></i></span>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
+
+<%#= @products_filtered.inspect  %>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-3 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+      <h2 class="font-weight-bold p-2">Filtrez la recherche</h2>
+      <%= simple_form_for :product, url: products_path, method: "GET" do |f| %>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <%= f.input :query,
+            label: false,
+            input_html: {
+              placeholder: "Nouvelle recherche ?",
+              value: params.dig(:product, :query)
+            }
+          %>
+           <%= f.input :query_filter_brand, label: "brand",
+            label: "Marque",
+            include_hidden: false,
+            collection: Product::BRANDS,
+            checked: params.dig(:product, :query_filter_brand),
+            as: :check_boxes
+          %>
+          <%= f.input :price, label: "unit_price_cents",
+            label: "Prix/unité",
+            include_hidden: false,
+            collection: Product::UNIT_PRICE_CENTS,
+            value_method: :first,
+            checked: params.dig(:product, :price),
+            as: :check_boxes
+          %>
+          <%= f.input :quantity, label: "available_quantity",
+            label: "Quantité",
+            include_hidden: false,
+            collection: Product::AVAILABLE_QUANTITIES,
+            value_method: :first,
+            checked: params.dig(:product, :quantity),
+            as: :check_boxes
+          %>
+        </div>
+        <div class="col-md-3">
+          <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+            <span><i class="fas fa-search"></i></span>
+          <% end %>
+          <% end %>
+        </div>
       </div>
-  </div>
-  <h1 class="text-primary font-weight-bold p-2">Resultats de la recherche</h1>
-  <div class="p-3 row row-cols-2 row-cols-md-4 g-4">
-    <% if @products.present? %>
-      <% @products.each do |product| %>
-        <div class="col">
-          <div class="card border border-primary shadow-sm" id="cardi">
-            <%#= image_tag "https://5.imimg.com/data5/SELLER/Default/2020/10/GK/JQ/IQ/44285273/whatsapp-image-2020-10-08-at-1-26-52-pm-500x500.jpeg", alt: "", class: "card-img-top p-2"%>
-            <% if product.picture.attached? %>
-              <%= cl_image_tag product&.picture.key, alt: "alttext", class: "card-img-top img-fluid" %>
-            <% end %>
-            <div class="card-body">
-              <h5 class="card-title text-primary font-weight-bold"><%= product.name %></h5>
-              <p class="card-content">Marque : <%= product.brand %></p>
-              <div class="row">
-                <div class="col-md-6">
-                  <%= link_to "Voir ...", product_path(product), class: "btn btn-primary" %>
-                </div>
-                <div class="col-md-6">
-                  <p class="text btn btn-outline-primary"><b>Prix/unité <%= product.unit_price_cents %> € HT</b></p>
+    </div>
+  </nav>
+
+  <main role="main" class="col-md-9 ml-sm-auto col-lg-9 pt-3 px-4">
+      <h1 class="text-primary font-weight-bold p-2">Resultats de la recherche</h1>
+      <div class="p-3 row row-cols-2 row-cols-md-4 g-4">
+        <% if @products.present? %>
+          <% @products.each do |product| %>
+            <div class="col">
+              <div class="card border border-primary shadow-sm" id="cardgrid">
+                <%#= image_tag "https://5.imimg.com/data5/SELLER/Default/2020/10/GK/JQ/IQ/44285273/whatsapp-image-2020-10-08-at-1-26-52-pm-500x500.jpeg", alt: "", class: "card-img-top img-fluid"%>
+                <% if product.picture.attached? %>
+                  <%= cl_image_tag product&.picture.key, alt: "alttext", class: "card-img-top img-fluid" %>
+                <% end %>
+                <div class="card-body">
+                  <h5 class="card-title text-primary font-weight-bold"><%= product.name %></h5>
+                  <p class="card-content"><%= product.brand %></p>
+                  <h5 class="text text-center"><b>Prix/unité <%= product.unit_price_cents %> €</b></h5>
+                  <div class="row justify-content-center">
+                    <%= link_to "Voir le produit", product_path(product), class: "btn btn-outline-primary w-75" %>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+          <% end %>
+        <% end %>
+      </div>
+  </main>
 </div>
-
-<%#= @products_filtered.inspect  %>
-
-
-
-
-
-
+</div>
