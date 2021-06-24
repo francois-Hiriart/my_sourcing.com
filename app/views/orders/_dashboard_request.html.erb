@@ -10,11 +10,15 @@
           <% if request.product.picture.attached? %>
               <%= cl_image_tag request.product&.picture.key, alt: "alttext", class: "card-img-top img-fluid" %>
             <% end %>
-          <p class="card-text"><%= request.product.name%></p>
-          <p class="card-text">Quantité : <%= request.product_quantity%> unités</p>
-          <p class="card-text">Prix : <%= request.price_cents%> €</p>
-          <%= link_to 'Détails du produit', product_path(request.product), class:"btn btn-outline-primary"%>
-          <%= link_to 'Valider', edit_order_path(request), class: "btn btn-primary" %>
+          <p class="card-text", id="request-<%= request.id %>"><%= request.product.name%></p>
+          <p class="card-text", id="request-<%= request.id %>">Quantité : <%=  number_with_delimiter(request.product_quantity, delimiter: " ")%> unités</p>
+          <% if request.price_cents.present? %>
+           <p class="card-text", id="request-<%= request.id %>">Prix : <%= number_with_delimiter(request.price_cents, delimiter: " ") %> €</p>
+          <% else %>
+           <p class="card-text", id="request-<%= request.id %>">Prix : en cours d'évaluation pour le fournisseur</p>
+          <% end %>
+            <%= link_to 'Détails du produit', product_path(request.product), class:"btn btn-outline-primary"%>
+            <%= link_to 'Valider', edit_order_path(request), class: "btn btn-primary" %>
         </div>
       </div>
     </div>

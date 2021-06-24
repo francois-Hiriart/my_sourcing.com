@@ -63,7 +63,7 @@
                 <div class="card-body">
                   <h5 class="card-title text-primary font-weight-bold"><%= product.name %></h5>
                   <p class="card-content"><%= product.brand %></p>
-                  <h5 class="text text-center"><b>Prix : <%= product.unit_price_cents %> €</b></h5>
+                  <h5 class="text text-center"><b>Prix/unité <%= product.unit_price_cents %> €</b></h5>
                   <div class="row justify-content-center">
                     <%= link_to "Voir le produit", product_path(product), class: "btn btn-outline-primary w-75" %>
                   </div>
@@ -76,9 +76,3 @@
   </main>
 </div>
 </div>
-
-
-
-
-
-

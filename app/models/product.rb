@@ -5,7 +5,7 @@ class Product < ApplicationRecord
 
   # scope :filter_by_price, ->(prices) { where(unit_price_cents: prices[1]) }
 
-  enum category: { masque: 1, bande: 2, catheter: 3, seringue: 4, scalpel: 5 }
+  enum category: { gant: 1, masque: 2, bande: 3, catheter: 4, seringue: 5, scalpel: 6 }
 
   attr_accessor :query
 
