@@ -9,8 +9,7 @@
       <div class="col-md-9">
         <div class="card-body">
           <h5>Commande n° <span class="text-primary font-weight-bold">#<%= request.id %></span></h5>
-
-          <p class="card-text", id="request-<%= request.id %>"><%= request.product.name%></p>
+          <p class="card-text", id="request-devis"><%= request.product.name%></p>
           <p class="card-text", id="request-<%= request.id %>">Quantité : <%=  number_with_delimiter(request.product_quantity, delimiter: " ")%> unités</p>
           <% if request.price_cents.present? %>
            <p class="card-text", id="request-<%= request.id %>">Prix : <%= number_with_delimiter(request.price_cents, delimiter: " ") %> €</p>
