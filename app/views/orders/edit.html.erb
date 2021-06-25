@@ -3,25 +3,33 @@
   <h5 class="card-header text-primary">Confirmez le status de la commande</h5>
   <div class="card-body">
     <h5 class="card-title"></h5>
-    <p class="card-text">
       <% if current_user.role == "supplier" && @order.status == false %>
        <%= simple_form_for [@order], remote: true, url: order_path, method: :patch do |f| %>
-       <div class="row">
-          <div class="col-6">
-            <%= f.input :shipping_date, as: :date, label:"Date d'expédition" %>
+          <div class="row">
+            <div class="col-6">
+              <%= f.input :shipping_date, label:"Date d'expédition", html5:true,
+                                                input_html: { type: :date } %>
+            </div>
           </div>
-          <div class="col-6">
-            <%= f.input :delivery_date, as: :date, label:"Date de livraison"%>
+          <div class="row">
+            <div class="col-6">
+              <%= f.input :delivery_date, label:"Date de livraison", html5:true,
+                                                input_html: { type: :date } %>
+            </div>
           </div>
-          <div class="col-6">
-            <%= f.input :price_cents, label:'Total price'%>
+          <div class="row">
+            <div class="col-6">
+              <%= f.input :price_cents, label:'Total price'%>
+            </div>
           </div>
-          <div class="col-6">
-            <%= f.button :submit, "Proposition de devis", class: 'btn btn-primary' %>
+          <div class="row">
+            <div class="col-6">
+              <%= f.button :submit, "Proposition de devis", class: 'btn btn-primary' %>
+            </div>
           </div>
-       </div>
-       <% end %>
+      <% end %>
     <% end %>
+  </div>
 
     <% if current_user.role == "supplier" && @order.status == true  %>
        <%= simple_form_for [@order], remote: true, url: order_path, method: :patch do |f| %>

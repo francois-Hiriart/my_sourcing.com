@@ -14,13 +14,14 @@
               placeholder: "Nouvelle recherche ?",
               value: params.dig(:product, :query)
             }
+
           %>
            <%= f.input :query_filter_brand, label: "brand",
             label: "Marque",
             include_hidden: false,
             collection: Product::BRANDS,
             checked: params.dig(:product, :query_filter_brand),
-            as: :check_boxes
+            multiple: "multiple"
           %>
           <%= f.input :price, label: "unit_price_cents",
             label: "Prix/unité",
