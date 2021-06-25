@@ -7,7 +7,7 @@
   <div class="col-6">
     <% if current_user.role == "supplier" %>
       <div class="card mb-3 p-5">
-        <h3 class="text-primary">Commandes reçues par type de produit</h3>
+        <h3 class="text-primary text-center lead font-weight-bold">Commandes reçues par type de produit</h3>
         <br>
         <%= column_chart @quantity_ordered_category %>
       </div>
@@ -16,7 +16,7 @@
   <div class="col-6">
     <% if @quantity_requested_category.present?  %>
       <div class="card mb-3 p-5">
-        <h3 class="text-primary">Devis reçus par type de produit</h3>
+        <h3 class="text-primary text-center lead font-weight-bold">Devis reçus par type de produit</h3>
         <br>
         <% pie_chart @quantity_requested_category %>
       </div>
@@ -26,7 +26,7 @@
 
 
 <div class="card mb-3 p-5">
-  <h3 class="text-primary">Quantités à livrer par date</h3>
+  <h3 class="text-primary text-center lead font-weight-bold">Quantités à livrer par date</h3>
   <br>
   <%= line_chart @requests_by_shipping_date %>
 </div>
