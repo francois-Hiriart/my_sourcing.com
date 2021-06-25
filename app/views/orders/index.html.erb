@@ -50,29 +50,45 @@
 
   <div>
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <div class="justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <div class="tab-content" id="v-pills-tabContent">
 
           <div class="tab-pane fade show <%= "active" unless params[:tab] %>" id="general" role="tabpanel" aria-labelledby="general-tab">
             <div class="row">
               <div class="col-6">
-                <div class="card" style="height: 110px;">
-                  <div class="card-body ">
-                    <h5 class="card-text justify-content-center">Nombre de commandes</h5>
-                    <h5 class="card-text"><%= @requests.count %></h5>
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-md-2">
+                      <span style="font-size: 43px; color: #004696;">
+                        <i class="fas fa-tag p-5"></i>
+                      </span>
+                    </div>
+                    <div class="col-md-10">
+                      <div class="card-body">
+                        <h5 class="card-title lead font-weight-bold mb-3 text-primary text-center pt-3 ">Total de commandes</h5>
+                        <h3 class="card-text text-center"><%= @requests.count %></h3>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="col-6">
-                <div class="card " style="height: 110px;">
-                  <div class="card-body">
-                    <h5 class="card-text">Nombre de devis: </h5>
-                    <h5 class="card-text"><%= @orders.count %></h5>
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-md-2">
+                      <span style="font-size: 43px; color: #004696;">
+                        <i class="fas fa-receipt p-5"></i>
+                      </span>
+                    </div>
+                    <div class="col-md-10">
+                      <div class="card-body">
+                        <h5 class="card-title lead font-weight-bold mb-3 text-primary text-center pt-3 ">Nombre de devis</h5>
+                        <h3 class="card-text text-center "><%= @orders.count %></h3>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="row">
             </div>
             <div class="tab-pane fade <%= "active show" unless params[:tab] %>" id="general" role="tabpanel" aria-labelledby="general-tab">
               <%= render 'dashboard_chart', request: request, text: "validate" %>

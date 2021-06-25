@@ -1,71 +1,100 @@
-<div class="container p-3">
-  <div class="row justify-content-center">
-    <div class="col-5 card border" >
-      <% if @product.picture.attached? %>
-        <%= cl_image_tag @product.picture.key, alt: "alttext", class: "round img-fluid" %>
+<main class="mt-2 pt-4">
+  <div class="container dark-grey-text">
+    <div class="card p-5 border border-primary shadow p-3 mb-5 bg-body rounded">
+      <h1 class="text-primary font-weight-bold mb-5 text-center"><%= @product.name%></h1>
+      <div class="row wow fadeIn">
+        <div class="col-md-6 mb-4">
+          <% if @product.picture.attached? %>
+            <%= cl_image_tag @product.picture.key, alt: "alttext", class: "rounded mx-auto d-block border border-primary" %>
+          <% end %>
+        </div>
+
+        <div class="col-md-6 mb-4">
+          <div class="p-4">
+            <p class="lead"><span class="font-weight-bold text-success"><%= @product.unit_price_cents%> € par unité</span></p>
+            <p class="lead font-weight-bold mt-5">Description</p>
+            <p><%= @product.description %></p>
+            <p class="lead font-weight-bold mt-5">Fabricant</p>
+            <p><%= @product.brand %></p>
+            <%= link_to "Avoir un Devis", new_product_order_path(@product), class: "btn btn-primary mt-4" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center py-4">
+        <h2>Informations complémentaires</h2>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+        <div class="text-center shadow card border-primary">
+          <div class="card-body">
+            <span style="font-size: 48px; color: #004696;">
+              <i class="fas fa-shipping-fast"></i>
+            </span>
+            <h4 class="lead font-weight-bold mb-3">Livraison</h4>
+            <p>Rapide en moins 48h</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+        <div class="text-center shadow card border-primary">
+          <div class="card-body">
+            <span style="font-size: 48px; color: #004696;">
+              <i class="fas fa-copyright"></i>
+            </span>
+            <h4 class="lead font-weight-bold mb-3">Marque</h4>
+            <p><%= @product.brand %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+        <div class="text-center shadow card border-primary">
+          <div class="card-body">
+            <span style="font-size: 48px; color: #004696;">
+              <i class="fa fa-cubes "></i>
+            </span>
+            <h4 class="lead font-weight-bold mb-3">Stock disponible</h4>
+            <p><%= @product.available_quantity %> produits</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center py-4">
+        <h2>Recommendations</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="p-3 row row-cols-2 row-cols-md-4 g-4">
+    <% @recommanded_products.each_with_index do |recommanded_product, index| %>
+      <% active = index == 0 ? "active" : "" %>
+        <% if recommanded_product.picture.attached? %>
+        <div class="col">
+          <div class="card border border-primary shadow-sm" id="cardgrid">
+            <% if recommanded_product.picture.attached? %>
+              <%= cl_image_tag recommanded_product&.picture.key, alt: "alttext", class: "card-img-top img-fluid" %>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title text-primary font-weight-bold"><%= recommanded_product.name %></h5>
+              <p class="card-content"><%= recommanded_product.brand %></p>
+              <h5 class="text text-center"><b>Prix/unité <%= recommanded_product.unit_price_cents %> €</b></h5>
+            </div>
+          </div>
+        </div>
+        <% end %>
       <% end %>
     </div>
-
-    <div class="col-4 p-3 card border justify-content-center" >
-        <div class="card-body">
-          <h6 class="text-primary font-weight-bold">Déscription du Produit</h6>
-          <h6 class="text-primary font-weight-bold"><%= @product.name%></h4>
-          <p class="card-text"><%= @product.description %></p>
-        </div>
-    </div>
-
-    <div class="col-3 card border justify-content-center" >
-      <div class="card-body">
-        <div class="row">
-          <div class="card-body">
-            <p class=""><i class="fa fa-medkit"></i><small class="text-muted"> Catégorie: <%= @product.category %></small></p>
-            <p class="card-text"><i class="fas fa-star"></i><small class="text-muted"> Marque: <%= @product.brand %></small></p>
-            <p class="card-text"><i class="fas fa-book-open"></i> <small class="text-muted"> Modèle: <%= @product.model %></small></p>
-            <p class="card-text"><i class="fas fa-thumbs-up"></i><small class="text-muted"> Classement: <%= @product.average_rating %></small></p>
-            <p class="card-text"><i class="fa fa-cubes "></i><small class="text-muted"> Stock disponible: <%= @product.available_quantity %></small></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="card-body justify-content-center">
-            <p class="card-text text-primary font-weight-bold"><i class="fas fa-euro-sign"></i> <%= @product.unit_price_cents%>/unité</p>
-            <p class="card-text text-primary font-weight-bold">Référence du vendeur: <%= @product.user_id%></p>
-            <%= link_to "Avoir un Devis", new_product_order_path(@product), class: "btn btn-primary" %>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
+</main>
 
-
-  <div class="row p-3">
-    <h4 class="text-primary font-weight-bold">Recommendations</h4>
-  </div>
-
-  <div class="row justify-content-center">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner ">
-        <% @recommanded_products.each_with_index do |recommanded_product, index| %>
-          <% active = index == 0 ? "active" : "" %>
-          <div class="carousel-item <%= active %>">
-            <% if recommanded_product.picture.attached? %>
-              <%= cl_image_tag recommanded_product.picture.key, height: 300, width: 400, crop: :fill, class: "round img-fluid" %>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-  </div>
-</div>
