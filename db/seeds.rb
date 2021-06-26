@@ -307,8 +307,8 @@ masque_picture_list.each do |photo|
   masque.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
   masque.save!
   order = Order.new(product_quantity: Faker::Number.between(from: 1, to: 100000),
-  shipping_date: Faker::Date.between(from: '2021-06-01', to: '2021-06-08'),
-  delivery_date: Faker::Date.between(from: '2021-06-23', to: '2021-06-30'),
+  shipping_date: Faker::Date.between(from: '2021-06-20', to: '2021-06-25'),
+  delivery_date: Faker::Date.between(from: '2021-06-28', to: '2021-07-05'),
   product_id: masque.id,
   status: false,
   user: user1)
