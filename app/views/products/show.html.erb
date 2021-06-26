@@ -89,6 +89,7 @@
               <h5 class="card-title text-primary font-weight-bold"><%= recommanded_product.name %></h5>
               <p class="card-content"><%= recommanded_product.brand %></p>
               <h5 class="text text-center"><b>Prix/unité <%= recommanded_product.unit_price_cents %> €</b></h5>
+               <%= link_to "Voir le produit", product_path(recommanded_product), class: "btn btn-primary mt-4" %>
             </div>
           </div>
         </div>
