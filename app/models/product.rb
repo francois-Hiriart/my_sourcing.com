@@ -9,7 +9,10 @@ class Product < ApplicationRecord
 
   attr_accessor :query
 
-  BRANDS = ["Honeywell", "Z Plus", "Jayashree", "Z Plus", "Phoenix", "3M", "NMmedical", "Medical Equipment India", "Rubber CATH Embryo Transfer Catheter", "C V Technologies Pvt Ltd", "UROMED", "distrimed", "Ethicon (Johnson & Johnson)", "Choice of Surgeon, Amkay", "Ribbel", "Mowell", "Terumo", "Arria Industries", "Topographix Equipments Private Limited", "Expert Labo", "Shubham Pharmaceuticals", "JMS Range Products", "Medicare", "Apothecaries Sundries Manufacturing Co", "BSN Medical", "Becton Dickinson"]
+  BRANDS = ["Honeywell", "Z Plus", "Jayashree", "Z Plus", "Phoenix", "3M", "NMmedical", "Medical Equipment India", "Rubber CATH Embryo Transfer Catheter", "C V Technologies Pvt Ltd", "UROMED", "distrimed", "Ethicon (Johnson & Johnson)", "Choice of Surgeon, Amkay", "Ribbel", "Mowell", "Terumo", "Arria Industries", "Expert Labo", "Shubham Pharmaceuticals", "JMS Range Products", "Medicare", "Apothecaries Sundries Manufacturing Co", "BSN Medical", "Becton Dickinson", "Braun Medical", "Topographix Equip", "PIC"]
+
+
+
   UNIT_PRICE_CENTS = {
     "< 0,99" => 0..0.99,
     "1 - 9,99" => 1..9.99,
