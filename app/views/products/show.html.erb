@@ -59,7 +59,7 @@
               <i class="fa fa-cubes "></i>
             </span>
             <h4 class="lead font-weight-bold mb-3">Stock disponible</h4>
-            <p><%= @product.available_quantity %> produits</p>
+            <p><%= number_with_delimiter(@product.available_quantity, delimiter: " ") %> produits</p>
           </div>
         </div>
       </div>
