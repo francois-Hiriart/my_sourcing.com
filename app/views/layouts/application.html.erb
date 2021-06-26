@@ -36,6 +36,7 @@
         </div>
     </div>
 
+  <% unless (controller.controller_name == "orders") | (controller.controller_name == "products")%>
 
     <footer class="text-center bg-white text-lg-start text-muted mt-5" id="foot">
       <section class="bg-white pt-4">
@@ -110,5 +111,6 @@
         <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Monsourcing.com</a>
       </div>
     </footer>
+  <% end %>
   </body>
 </html>

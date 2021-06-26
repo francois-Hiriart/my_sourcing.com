@@ -1,5 +1,5 @@
 <div class="container w-auto">
-  <div class="card justify-content-between" style="width: 1100px;" id="card-status-dash">
+  <div class="card shadow border-primary justify-content-between" style="width: 1100px;" id="card-status-dash">
     <div class="row d-flex justify-content-between px-3 top">
       <div class="d-flex">
         <h5>Commande n° <span class="text-primary font-weight-bold" id="order-<%= order.id %>">#<%= order.id %> --- <%= order.product.name%></span></h5>
@@ -8,7 +8,7 @@
         <p class="mb-0" id="order-<%= order.id %>">Date de livraison estimée : <span><%= order.delivery_date%></span></p>
         <p class="mb-0" id="order-<%= order.id %>">Quantité commandé : <span><%=  number_with_delimiter(order.product_quantity, delimiter: " ") %> unités</span></p>
         <p class="mb-0" id="order-<%= order.id %>">Prix : <span><%=  number_with_delimiter(order.price_cents, delimiter: " ") %> €</span></p>
-        <p>USPS <span class="font-weight-bold" id="order-<%= order.id %>">234094567242423422898</span></p>
+        <p>UPS <span class="font-weight-bold" id="order-<%= order.id %>">42423422898</span></p>
       </div>
     </div> <!-- Add class 'active' to progress -->
     <div class="row d-flex justify-content-center">
@@ -56,13 +56,13 @@
               <p class="font-weight-bold"><br>En Route</p>
           </div>
       </div>
-      <div class="row d-flex icon-content"> <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+      <div class="row d-flex icon-content"> <img class="icon" src="https://pics.freeicons.io/uploads/icons/png/5205410931579605509-512.png">
           <div class="d-flex flex-column">
               <p class="font-weight-bold"><br>Arrivée</p>
           </div>
       </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-3">
       <%= link_to 'Modifier le statut', edit_order_path(order), class:"btn btn-primary"%>
     </div>
   </div>
