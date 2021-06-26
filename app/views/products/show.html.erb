@@ -5,7 +5,7 @@
       <div class="row wow fadeIn">
         <div class="col-md-6 mb-4">
           <% if @product.picture.attached? %>
-            <%= cl_image_tag @product.picture.key, alt: "alttext", class: "rounded mx-auto d-block border border-primary" %>
+            <%= cl_image_tag @product.picture.key, alt: "alttext", class: "rounded mx-auto d-block border border-primary mx-auto img-fluid" %>
           <% end %>
         </div>
 
