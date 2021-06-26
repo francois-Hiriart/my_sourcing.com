@@ -6,47 +6,53 @@
       <div class="sidebar-sticky">
       <h2 class="font-weight-bold p-2">Filtrez la recherche</h2>
       <%= simple_form_for :product, url: products_path, method: "GET" do |f| %>
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <%= f.input :query,
-            label: false,
-            input_html: {
-              placeholder: "Nouvelle recherche ?",
-              value: params.dig(:product, :query)
-            }
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <%= f.input :query,
+              as: :hidden,
+              label: false,
+              input_html: {
+                placeholder: "Nouvelle recherche ?",
+                required: false,
+                value: params.dig(:product, :query)
+              }
 
-          %>
-           <%= f.input :query_filter_brand, label: "brand",
-            label: "Marque",
-            include_hidden: false,
-            collection: Product::BRANDS,
-            checked: params.dig(:product, :query_filter_brand),
-            multiple: "multiple"
-          %>
-          <%= f.input :price, label: "unit_price_cents",
-            label: "Prix/unité",
-            include_hidden: false,
-            collection: Product::UNIT_PRICE_CENTS,
-            value_method: :first,
-            checked: params.dig(:product, :price),
-            as: :check_boxes
-          %>
-          <%= f.input :quantity, label: "available_quantity",
-            label: "Quantité",
-            include_hidden: false,
-            collection: Product::AVAILABLE_QUANTITIES,
-            value_method: :first,
-            checked: params.dig(:product, :quantity),
-            as: :check_boxes
-          %>
+            %>
+             <%= f.input :query_filter_brand, label: "brand",
+              label: "Marque",
+              include_blank: "Choisir",
+              collection: Product::BRANDS.sort_by {|brand| brand.downcase },
+              checked: params.dig(:product, :query_filter_brand),
+              required: false,
+              multiple: "multiple"
+            %>
+            <%= f.input :price, label: "unit_price_cents",
+              label: "Prix/unité",
+              include_hidden: false,
+              collection: Product::UNIT_PRICE_CENTS,
+              required: false,
+              value_method: :first,
+              checked: params.dig(:product, :price),
+              as: :check_boxes
+            %>
+            <%= f.input :quantity, label: "available_quantity",
+              label: "Quantité",
+              include_hidden: false,
+              collection: Product::AVAILABLE_QUANTITIES,
+              required: false,
+              value_method: :first,
+              checked: params.dig(:product, :quantity),
+              as: :check_boxes
+            %>
+          </div>
+          <div class="col-md-10">
+            <%= button_tag(type: "submit", class: "btn btn-primary w-100") do %>
+              <span><i class="fas fa-search"></i></span>
+              Chercher
+            <% end %>
+          </div>
         </div>
-        <div class="col-md-3">
-          <%= button_tag(type: "submit", class: "btn btn-primary") do %>
-            <span><i class="fas fa-search"></i></span>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
+      <% end %>
     </div>
   </nav>
 
