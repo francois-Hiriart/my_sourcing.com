@@ -201,13 +201,13 @@ seringue_description = ["Seringue stérile à usage unique de 1 ml 3 pièces en 
 
 seringue_list = ["SERINGUE 1 ml 3P OMNIFIX",
 "Seringue 3 pièces Terumo",
-"Seringues à usage unique",
-"Seringues à usage unique I",
-"Seringue d'injection",
-"Seringues de mésothérapie",
-"Seringues stériles",
+"Seringues jetables 3ml",
+"Seringues jetables 3ml",
+"Seringue d'injection 10ml",
+"Seringues stériles 3ml",
+"Seringues stériles 5ml",
 "Seringues à tuberculine",
-"Seringues à insuline BD",
+"Seringues à insuline",
 "Seringues à tuberculine"]
 
 seringue_brand_name = ["Braun Medical",
