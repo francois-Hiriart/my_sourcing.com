@@ -40,21 +40,21 @@ masque_description = ["Très haute FILTRATION + de 99 % [Livraison EXPRESS Grand
 "Ce masque est utilisé pour protéger son porteur des aérosols solides ou liquides (poussières, fumées, aérosols aqueux, virus, bactéries, etc.) en filtrant les particules. La barrette nasale est ajustable et rembourrée pour un plus grand confort. Les attaches latérales assurent un maintien optimisé, permettant une adaptation parfaite aux différentes morphologies."]
 
 
-masque_list = ["HONEYWELL MASQUE FACE jetable 3 PLY",
-"Masque médical jetable Z Plus bleu",
-"Non-tissé 3 Ply General Purpose Dispo Tragen masque facial",
-"Masque facial hospitalier à usage unique Z Plus C-Cure (our les interventions chirurgicales)",
-"Masque jetable 3 plis en polypropylène",
-"Masque facial jetable 3M 9504 In FFP2",
-"Masque chirurgical type 2R à très haute filtration",
-"Masques de protection respiratoire",
-"attache pour masques chirurgicaux et textile",
-"masques chirurgicaux enfants type ii",
-"Attache pour masque de protection",
-"Masques FFP2 TexiShield",
-"Masques à oxygène moyenne concentration",
-"Masques à oxygène à haute concentration",
-"Masques de protection respiratoire FFP2"]
+masque_list = ["Masque 3 PLY",
+"Masque Z+ bleu",
+"Masque 3 Ply",
+"Masque Z+ C-Cure",
+"Masque 3 plis",
+"Masque 3M FFP2",
+"Masque protection",
+"Attache masques",
+"Masques enfants ii",
+"Attachemasques",
+"Masques FFP2",
+"Masques FFP2",
+"Masque chirurgical type 2R",
+"Masques oxygène moyenne concentration",
+"Masques oxygène haute concentration"]
 
 masque_brand_name = ["HONEYWELL",
 "Z Plus",
