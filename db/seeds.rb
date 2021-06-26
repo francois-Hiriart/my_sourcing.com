@@ -74,11 +74,11 @@ masque_brand_name = ["HONEYWELL",
 
 
 masque_picture_list = ["https://5.imimg.com/data5/SELLER/Default/2021/2/RI/PW/XZ/45001431/3-ply-face-mask-500x500.jpg",
-"https://5.imimg.com/data5/DI/WP/OR/SELLER-15641972/disposable-doctor-mask-500x500.jpg",
-"https://5.imimg.com/data5/KG/OY/UA/SELLER-9173595/sugical-face-mask-500x500.jpg",
+"https://www.carrefour.fr/media/540x540/Photosite/BAZAR/BRICOLAGE/1230000059718_PHOTOSITE_20200915_155827_0.jpg?placeholder=1",
+"https://everestmedical.fr/wp-content/uploads/2020/04/masque-ffp2.jpg",
 "https://4.imimg.com/data4/UH/SE/MY-15641972/disposable-face-mask-500x500.jpg",
-"https://media.very.co.uk/i/very/QRM73_SQ1_0000000088_NO_COLOR_SLf?$300x400_retinamobilex2$",
-"https://5.imimg.com/data5/ANDROID/Default/2021/5/TM/DU/FI/9143489/3m-face-mask-500x500-1-jpg-500x500.jpg",
+"https://www.gantsdiscount.com/images_upload/20200723/1100_original.jpg",
+"https://www.excellium-antinuisibles.com/219-large_default/masque-3m-respiratoire-avec-soupape.jpg",
 "https://cdn-01.media-brady.com/store/sefr/media/catalog/product/s/e/sefr_102wjf_16_std.lang.all.jpg",
 "https://www.bastideleconfortmedical.com/project/resources/img/original/ffp2-ok.jpg",
 "https://www.bastideleconfortmedical.com/project/resources/img/type8/protegeoreillemasques.jpg",
@@ -86,8 +86,8 @@ masque_picture_list = ["https://5.imimg.com/data5/SELLER/Default/2021/2/RI/PW/XZ
 "https://www.distrimed.com/images/imagesmulti/032051_1_b.jpg",
 "https://www.distrimed.com/images/imagesmulti/173101_120112_b.jpg",
 "https://sc04.alicdn.com/kf/Hcac5a522ca874c4d9d9d1961a7f5d04fM.jpg",
-"https://www.realme.fr/7800-large_default/masque-oxygene-haute-concentration-le-carton-de-50.jpg",
-"https://france-masque.fr/wp-content/uploads/2021/01/masque-paul-boye-FFP2--scaled.jpg"]
+"https://www.sissel.fr/27324-large_default/masque-chirurgical-3-plis-type-iir-boite-de-50.jpg",
+"https://www.ld-medical.fr/5928-thickbox_default/masque-de-protection-type-2.jpg"]
 
 
 
@@ -127,11 +127,11 @@ catheter_brand_name = ["NMmedical",
 ]
 
 
-catheter_picture_list = ["https://www.energie-medical.fr/5475-large_default/catheter-bd-angiocath-iv.jpg",
-"https://4.imimg.com/data4/TK/DS/MY-7159894/semtrac-set-4-2-catheter-500x500.jpg",
-"https://5.imimg.com/data5/SELLER/Default/2020/9/ZU/WK/YB/10141310/cath-embryo-transfer-catheter-500x500.jpg",
+catheter_picture_list =  ["https://www.energie-medical.fr/5475-large_default/catheter-bd-angiocath-iv.jpg",
+"https://www.energie-medical.fr/5474-large_default/catheter-surflo-iv-ailettes-a-site-d-injection.jpg",
+"https://www.ld-medical.fr/4963-large_default/catheter-intraveineux-bd-insyte.jpg",
 "https://5.imimg.com/data5/VQ/IV/MF/SELLER-84272073/paclitaxel-eluting-pta-balloon-catheter-500x500.jpg",
-"https://5.imimg.com/data5/XC/QD/MY-434358/naso-biliary-catheter-nbdc-500x500.png",
+"https://www.energie-medical.fr/5473-large_default/catheter-surflo-avec-ailettes.jpg",
 "https://static.praxisdienst.com/out/pictures/generated/product/1/1200_1200_40/138448_bd_neoflon_1.jpg",
 "https://www.phimedical.fr/111594-large_default/catheter-droit-securise-avec-ailette-et-site-d-injection-selfsafe-2.jpg",
 "https://static.praxisdienst.com/out/pictures/generated/product/1/1200_1200_40/138296_venflon_pro_safety_orange_1.jpg",
@@ -176,9 +176,9 @@ scalpel_brand_name = ["distrimed",
 
 
 scalpel_picture_list = ["https://www.label-blouse.net/34926-thickbox_default/bistouri-fixe-manche-plat-lame-convexe.jpg",
-"https://5.imimg.com/data5/VP/HL/MY-43847306/johnson-and-johnson-ethicon-harmonic-scalpel-handpiece-hp054-500x500.jpg",
-"https://5.imimg.com/data5/SELLER/Default/2021/2/LF/QU/BI/65816862/surgical-blade-8-500x500.png",
-"https://5.imimg.com/data5/FH/XH/MY-3190652/thumb-scalpels-500x500.jpg",
+"https://www.growshops.fr/44014-large_default/scalpel-sterile-pour-bouture-a-l-unite-vitlab.jpg",
+"https://www.ld-medical.fr/165-home_default/lames-coupe-fils-steriles-swann-morton-bte-de-100.jpg",
+"https://static.praxisdienst.com/out/pictures/generated/product/1/1200_1200_40/teqler_einmalskalpelle_370622.jpg",
 "https://5.imimg.com/data5/SELLER/Default/2020/12/FE/AU/IX/1181137/surgical-disposable-scalpels-500x500.png",
 "https://www.comed.fr/produit/image/0000/0106/moyenne/C1%20200%2003-04%20(2).jpg",
 "https://www.ipp-pharma.net/boutique/1304-large_default/manche-de-bistouri-mjk.jpg",
@@ -199,13 +199,13 @@ seringue_description = ["Seringue stérile à usage unique de 1 ml 3 pièces en 
 "Ces seringues pré-montées sont préconisées pour les injections intradermiques de petits volumes de tuberculine. Elles sont dotées d'une aiguille haute pénétration qui diminue la douleur ressentie."]
 
 
-seringue_list = ["SERINGUE 1 ml 3P OMNIFIX 100 DUO montée",
-"Seringue 3 pièces Terumo - La boîte de 100",
+seringue_list = ["SERINGUE 1 ml 3P OMNIFIX",
+"Seringue 3 pièces Terumo",
 "Seringues à usage unique",
 "Seringues à usage unique I",
-"Seringue d'injection en plastique",
-"Seringues de mésothérapie PIC",
-"Seringues stériles PIC",
+"Seringue d'injection",
+"Seringues de mésothérapie",
+"Seringues stériles",
 "Seringues à tuberculine",
 "Seringues à insuline BD",
 "Seringues à tuberculine"]
@@ -225,11 +225,11 @@ seringue_brand_name = ["Braun Medical",
 seringue_picture_list = ["https://123medical.fr/wp-content/uploads/2020/10/123medical_seringue-3p-omnifix-100duo-bbraun.jpg",
 "https://5.imimg.com/data5/SELLER/Default/2021/1/OF/YO/SP/28551907/disposable-syringe-500x500.jpg",
 "https://5.imimg.com/data5/SELLER/Default/2021/2/XZ/FO/LY/32725524/disposable-syringes-500x500.jpg",
-"https://5.imimg.com/data5/TZ/SD/YC/SELLER-62219633/dispensing-syringe-500x500.jpg",
-"https://5.imimg.com/data5/SELLER/Default/2021/1/SN/WR/YH/38804379/injection-syringe-500x500.jpg",
+"https://d2p3duacfnfxvs.cloudfront.net/dontalia-fr/products/21225.jpg",
+"https://media.santediscount.com/media/catalog/product/cache/1/image/600x/9df78eab33525d08d6e5fb8d27136e95/6/0/6017433-1-3401060174330.jpg?v=877077c82639556eb252e8daba5eea84283f992c",
 "https://www.distrimed.com/images/imagesmulti/070191_1_m.jpg",
 "https://www.equipmedical.com/media/cache/product_img/org-19168-bd-seringue-2-ml.jpg",
-"https://labelians.fr/media/catalog/product/cache/c687aa7517cf01e65c009f6943c2b1e9/3/9/39478_1.jpg",
+"https://www.lacompagniedesanimaux.com/media/catalog/product/cache/cd0529304eb5dca75d7f7637ae1fdade/8/2/8264419_seringue_1.jpg",
 "https://www.techniciendesante.fr/boutique/28395-large_default/7498-seringue-a-insuline-bd-micro-fine-tm-29g-1cc-la-boite-de-200-.jpg",
 "https://www.drexcomedical.fr/1498-large_default/seringues-nue-1-ml.jpg"]
 
@@ -269,11 +269,11 @@ bande_brand_name = ["Shubham Pharma",
 "PIC"]
 
 
-bande_picture_list = ["https://3.imimg.com/data3/IU/OC/MY-7350969/elasto-adhesive-tape-250x250.jpg",
-"https://5.imimg.com/data5/JX/AP/MY-1849095/jms-meditape-500x500.jpg",
-"https://4.imimg.com/data4/FL/RM/MY-957299/medical-tapes-500x500.jpg",
-"https://2.imimg.com/data2/VN/MT/MY-16367/esmarch-rubber-bandage-500x500.jpg",
-"https://5.imimg.com/data5/SELLER/Default/2020/10/EF/GD/RH/8488004/20-500x500.jpg",
+bande_picture_list = ["https://www.drexcomedical.fr/1620-large_default/bande-adhesive-mediclinic-strap.jpg",
+"https://www.quirumed.com/media/catalog/product/1/0/1091_WMD64_0_3e3b.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=600&width=800&canvas=800:600",
+"https://media.santediscount.com/media/catalog/product/cache/1/image/600x/9df78eab33525d08d6e5fb8d27136e95/6/0/6001740-1-3156260017405-tetra-medical-bande-extensible-7cm-x-4m.jpg?v=877077c82639556eb252e8daba5eea84283f992c",
+"https://www.physiosupplies.fr/media/catalog/product/cache/b0f9b2a4aea04476b41ce62af3ada0a8/1/-/1-021_1_3.jpg",
+"https://lh3.googleusercontent.com/proxy/MZXqIGjH5bsEP5Kklm6GkxlA0Q-mvRql2FW3yoFEV5sW7J_xo7rpkSzM5G_Ek0CCEjfCF8Rw86IYnoWbirOKzM20N594ntP_GoDJP7QgdDVuCCFDbhseSyWxthXb2Kw-iTPWWKO4HixNfze2tOpNG3U8ZfID",
 "http://www.laboratoires-euromedis.fr/_upload/ressources/cata-2017/pansement/singlefix.jpg",
 "https://www.herlimedical.com/media/catalog/product/cache/2/image/1800x/040ec09b1e35df139433887a97daa66f/c/r/crepe_windel_1_1_1.jpg",
 "https://static.praxisdienst.com/out/pictures/generated/product/1/1200_1200_40/lohmann_rauscher_tg_fix_netzverband_603675_1.jpg",
