@@ -15,6 +15,7 @@
           <p class="card-text"><%= @order.shipping_date%></p>
           <p class="card-text"><%= @order.delivery_date%></p>
           <p class="card-text"><%= @order.price_cents%></p>
+          <p class="card-text"><%= @order.rating.grade%></p>
     </div>
      <div class="col-md-6">
           <%= render 'orders/form_edit', order: @order, text: "validate" %>

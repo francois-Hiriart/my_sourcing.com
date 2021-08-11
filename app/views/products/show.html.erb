@@ -16,6 +16,8 @@
             <p><%= @product.description %></p>
             <p class="lead font-weight-bold mt-5">Fabricant</p>
             <p><%= @product.brand %></p>
+            <p class="lead font-weight-bold mt-5">Rating moyen</p>
+            <p><%= @average_rating %></p>
             <%= link_to "Avoir un Devis", new_product_order_path(@product), class: "btn btn-primary mt-4" %>
           </div>
         </div>

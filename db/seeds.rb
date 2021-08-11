@@ -8,8 +8,10 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+# Rating.destroy_all
 Product.destroy_all
 Order.destroy_all
+
 
 
 # gant_description = []
@@ -226,11 +228,9 @@ seringue_picture_list = ["https://123medical.fr/wp-content/uploads/2020/10/123me
 "https://5.imimg.com/data5/SELLER/Default/2021/1/OF/YO/SP/28551907/disposable-syringe-500x500.jpg",
 "https://5.imimg.com/data5/SELLER/Default/2021/2/XZ/FO/LY/32725524/disposable-syringes-500x500.jpg",
 "https://d2p3duacfnfxvs.cloudfront.net/dontalia-fr/products/21225.jpg",
-"https://media.santediscount.com/media/catalog/product/cache/1/image/600x/9df78eab33525d08d6e5fb8d27136e95/6/0/6017433-1-3401060174330.jpg?v=877077c82639556eb252e8daba5eea84283f992c",
 "https://www.distrimed.com/images/imagesmulti/070191_1_m.jpg",
 "https://www.equipmedical.com/media/cache/product_img/org-19168-bd-seringue-2-ml.jpg",
 "https://www.lacompagniedesanimaux.com/media/catalog/product/cache/cd0529304eb5dca75d7f7637ae1fdade/8/2/8264419_seringue_1.jpg",
-"https://www.techniciendesante.fr/boutique/28395-large_default/7498-seringue-a-insuline-bd-micro-fine-tm-29g-1cc-la-boite-de-200-.jpg",
 "https://www.drexcomedical.fr/1498-large_default/seringues-nue-1-ml.jpg"]
 
 
@@ -269,12 +269,7 @@ bande_brand_name = ["Shubham Pharma",
 "PIC"]
 
 
-bande_picture_list = ["https://www.drexcomedical.fr/1620-large_default/bande-adhesive-mediclinic-strap.jpg",
-"https://www.quirumed.com/media/catalog/product/1/0/1091_WMD64_0_3e3b.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=600&width=800&canvas=800:600",
-"https://media.santediscount.com/media/catalog/product/cache/1/image/600x/9df78eab33525d08d6e5fb8d27136e95/6/0/6001740-1-3156260017405-tetra-medical-bande-extensible-7cm-x-4m.jpg?v=877077c82639556eb252e8daba5eea84283f992c",
-"https://www.physiosupplies.fr/media/catalog/product/cache/b0f9b2a4aea04476b41ce62af3ada0a8/1/-/1-021_1_3.jpg",
-"https://lh3.googleusercontent.com/proxy/MZXqIGjH5bsEP5Kklm6GkxlA0Q-mvRql2FW3yoFEV5sW7J_xo7rpkSzM5G_Ek0CCEjfCF8Rw86IYnoWbirOKzM20N594ntP_GoDJP7QgdDVuCCFDbhseSyWxthXb2Kw-iTPWWKO4HixNfze2tOpNG3U8ZfID",
-"http://www.laboratoires-euromedis.fr/_upload/ressources/cata-2017/pansement/singlefix.jpg",
+bande_picture_list = ["http://www.laboratoires-euromedis.fr/_upload/ressources/cata-2017/pansement/singlefix.jpg",
 "https://www.herlimedical.com/media/catalog/product/cache/2/image/1800x/040ec09b1e35df139433887a97daa66f/c/r/crepe_windel_1_1_1.jpg",
 "https://static.praxisdienst.com/out/pictures/generated/product/1/1200_1200_40/lohmann_rauscher_tg_fix_netzverband_603675_1.jpg",
 "https://static.praxisdienst.com/out/pictures/generated/product/1/1200_1200_40/lohmann_rauscher_mollelast_haft_latexfrei_603680.jpg",
@@ -301,7 +296,6 @@ masque_picture_list.each do |photo|
   available_quantity: Faker::Number.between(from: 1, to: 100000),
   unit_price_cents: Faker::Commerce.price(range: 0.5..3.0, as_string: true) + "par unité",
   brand: masque_brand_name[i],
-  average_rating: 1,
   category: "masque",
   user: user2)
   masque.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
@@ -313,6 +307,10 @@ masque_picture_list.each do |photo|
   status: false,
   user: user1)
   order.save!
+  # rating = Rating.new(rating: Faker::Number.between(from: 1, to: 5),
+  # order_id: order.id,
+  # user: user1)
+  # rating.save!
   i += 1
 end
 
@@ -328,7 +326,6 @@ catheter_picture_list.each do |photo|
   available_quantity: Faker::Number.between(from: 1, to: 100000),
   unit_price_cents: Faker::Commerce.price(range: 40.0..100.0, as_string: true) + "par unité",
   brand: catheter_brand_name[i],
-  average_rating: 1,
   category: "catheter",
   user: user2)
   catheter.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
@@ -339,6 +336,10 @@ catheter_picture_list.each do |photo|
   product_id: catheter.id,
   user: user1)
   order.save!
+  # rating = Rating.new(rating: Faker::Number.between(from: 1, to: 5),
+  # product_id: catheter.id,
+  # order_id: order.id)
+  # rating.save!
   i += 1
 
   end
@@ -356,7 +357,6 @@ scalpel_picture_list.each do |photo|
   available_quantity: Faker::Number.between(from: 1, to: 100000),
   unit_price_cents: Faker::Commerce.price(range: 3.0..25.0, as_string: true) + "par unité",
   brand: scalpel_brand_name[i],
-  average_rating: 1,
   category: "scalpel",
   user: user2)
   scalpel.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
@@ -367,8 +367,11 @@ scalpel_picture_list.each do |photo|
   product_id: scalpel.id,
   user: user1)
   order.save!
+  # rating = Rating.new(rating: Faker::Number.between(from: 1, to: 5),
+  # product_id: scalpel.id,
+  #  order_id: order.id)
+  # rating.save!
   i += 1
-
   end
 
 
@@ -383,7 +386,6 @@ seringue_picture_list.each do |photo|
   available_quantity: Faker::Number.between(from: 1, to: 100000),
   unit_price_cents: Faker::Commerce.price(range: 5.0..25.0, as_string: true) + "par boîte",
   brand: seringue_brand_name[i],
-  average_rating: 1,
   category: "seringue",
   user: user2)
   seringue.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
@@ -394,6 +396,10 @@ seringue_picture_list.each do |photo|
   product_id: seringue.id,
   user: user1)
   order.save!
+  # rating = Rating.new(rating: Faker::Number.between(from: 1, to: 5),
+  # product_id: seringue.id,
+  # order_id: order.id)
+  # rating.save!
   i += 1
 
   end
@@ -410,7 +416,6 @@ bande_picture_list.each do |photo|
   available_quantity: Faker::Number.between(from: 1, to: 100000),
   unit_price_cents: Faker::Commerce.price(range: 0.3..3.0, as_string: true) + "par unité",
   brand: bande_brand_name[i],
-  average_rating: 1,
   category: "bande",
   user: user2)
   bande.picture.attach(io: photo, filename: "product photo", content_type: "images/jpg")
@@ -421,5 +426,9 @@ bande_picture_list.each do |photo|
   product_id: bande.id,
   user: user1)
   order.save!
+  # rating = Rating.new(rating: Faker::Number.between(from: 1, to: 5),
+  # product_id: bande.id,
+  # order_id: order.id)
+  # rating.save!
   i += 1
 end

@@ -9,8 +9,12 @@
         <p class="mb-0" id="order-<%= order.id %>">Quantité commandé : <span><%=  number_with_delimiter(order.product_quantity, delimiter: " ") %> unités</span></p>
         <p class="mb-0" id="order-<%= order.id %>">Prix : <span><%=  number_with_delimiter(order.price_cents, delimiter: " ") %> €</span></p>
         <p>UPS <span class="font-weight-bold" id="order-<%= order.id %>">42423422898</span></p>
+       <% if current_user.role == "buyer" && order.delivered_status == true && order.rating.present? %>
+        <p class="mb-0" id="order-<%= order.id %>">Note : <span><%=  order.rating.grade %></span></p>
+        <% end %>
       </div>
     </div> <!-- Add class 'active' to progress -->
+
     <div class="row d-flex justify-content-center">
       <div class="col-12">
         <ul id="progressbar" class="text-center">
@@ -56,15 +60,25 @@
               <p class="font-weight-bold"><br>En Route</p>
           </div>
       </div>
-      <div class="row d-flex icon-content"> <img class="icon" src="https://pics.freeicons.io/uploads/icons/png/5205410931579605509-512.png">
+      <div class="row d-flex icon-content"> <img class="icon" src="https://image.flaticon.com/icons/png/512/861/861452.png">
           <div class="d-flex flex-column">
               <p class="font-weight-bold"><br>Arrivée</p>
           </div>
       </div>
     </div>
+
+  <% if current_user.role == "supplier" %>
     <div class="row justify-content-center mb-3">
       <%= link_to 'Modifier le statut', edit_order_path(order), class:"btn btn-primary"%>
     </div>
+  <% end %>
+
+
+    <% if current_user.role == "buyer" && order.delivered_status == true %>
+      <div class="row justify-content-center mb-3">
+        <%= link_to 'Noter', new_order_rating_path(order), class:"btn btn-primary"%>
+      </div>
+    <% end %>
   </div>
 </div>
 

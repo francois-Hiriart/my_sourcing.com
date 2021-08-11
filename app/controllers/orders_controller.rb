@@ -1,7 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :destroy, :edit, :update]
 
-
   def index
     if current_user.role == "buyer"
       user_orders = current_user.orders
@@ -54,6 +53,9 @@ class OrdersController < ApplicationController
 
   def update
     @request = Order.find(params[:id])
+    @rating = Rating.new
+    @ratings = @order.rating
+    authorize @rating
 
     form_params = current_user.role == "buyer" ? update_buyer_params : update_supplier_params
 
@@ -64,8 +66,13 @@ class OrdersController < ApplicationController
         redirect_to orders_path(tab: "commandes")
       end
     else
-     render :edit
+      render :edit
     end
+  end
+
+  def destroy
+    @order.destroy
+    redirect_to orders_path
   end
 
   private

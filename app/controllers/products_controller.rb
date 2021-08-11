@@ -36,6 +36,15 @@ class ProductsController < ApplicationController
 
   def show
     @recommanded_products = Product.where(category: @product.category).limit(4)
+    @ratings = @product.ratings
+    @total_ratings = []
+    sum = 0
+    @ratings.each do |rating|
+      rating.grade
+      sum += rating.grade
+      @total_ratings.push(rating.grade)
+    end
+    @average_rating = sum / @total_ratings.size
   end
 
   private

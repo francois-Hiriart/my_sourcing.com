@@ -18,6 +18,11 @@
           <% end %>
             <%= link_to 'Détails du produit', product_path(request.product), class:"btn btn-outline-primary"%>
             <%= link_to 'Valider', edit_order_path(request), class: "btn btn-primary" %>
+            <%= link_to order_path(request),
+                          method: :delete,
+                          data: { confirm: "Are you sure?" } do %>
+                          <button class="btn btn-danger">Annuler</button>
+            <% end %>
         </div>
       </div>
     </div>
