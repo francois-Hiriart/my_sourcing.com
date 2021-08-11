@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_16_095757) do
+ActiveRecord::Schema.define(version: 2021_08_06_075610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,13 +59,20 @@ ActiveRecord::Schema.define(version: 2021_06_16_095757) do
     t.float "unit_price_cents"
     t.integer "available_quantity"
     t.string "brand"
-    t.integer "average_rating"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category"
     t.string "picture"
     t.index ["user_id"], name: "index_products_on_user_id"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.float "grade"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_ratings_on_order_id"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -119,5 +126,6 @@ ActiveRecord::Schema.define(version: 2021_06_16_095757) do
   add_foreign_key "orders", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "users"
+  add_foreign_key "ratings", "orders"
   add_foreign_key "taggings", "tags"
 end
